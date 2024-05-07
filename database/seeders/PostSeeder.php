@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Meta;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -17,8 +18,10 @@ class PostSeeder extends Seeder
         Post::truncate();
         Tag::truncate();
         $tags = Tag::factory(10)->create();
-        Post::factory(10)->create()->each(function (Post $post) use ($tags) {
-            $post->tags()->sync($tags->random(rand(2, 4)));
-        });
+        Post::factory(10)
+            ->has(Meta::factory())
+            ->create()->each(function (Post $post) use ($tags) {
+                $post->tags()->sync($tags->random(rand(2, 4)));
+            });
     }
 }
