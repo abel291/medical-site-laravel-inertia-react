@@ -19,7 +19,7 @@ export default {
             padding: {
                 DEFAULT: "1rem",
                 sm: "2rem",
-                lg: "2rem",
+                lg: "3rem",
                 xl: "4rem",
                 '2xl': "10rem",
             },
@@ -27,10 +27,11 @@ export default {
         colors: {
             ...colors,
             primary: colors.teal,
+            secondary: colors.orange,
         },
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Roboto', ...defaultTheme.fontFamily.sans],
             },
         },
     },

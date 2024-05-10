@@ -7,15 +7,17 @@ import { HomeIcon, ChatBubbleBottomCenterTextIcon, UserGroupIcon, TvIcon, PhoneI
 const Navbar = () => {
     const navigations = [
         { title: 'Inicio', routeName: 'home', icon: HomeIcon },
-        { title: 'Acerca de', routeName: 'home', icon: UserGroupIcon },
-        { title: 'Servicios', routeName: 'home', icon: TvIcon },
-        { title: 'Precios', routeName: 'home', icon: TvIcon },
-        { title: 'Contactenos', routeName: 'home', icon: PhoneIcon },
-        { title: 'Blog', routeName: 'home', icon: ChatBubbleBottomCenterTextIcon },
+        { title: 'Nostros', routeName: 'home2', icon: UserGroupIcon },
+        { title: 'Servicios', routeName: 'home2', icon: TvIcon },
+        { title: 'Precios', routeName: 'home2', icon: TvIcon },
+        { title: 'Blog', routeName: 'home2', icon: ChatBubbleBottomCenterTextIcon },
+        { title: 'Contacto', routeName: 'home2', icon: PhoneIcon },
+
+
     ]
     return (
         <>
-            {/* <NavbarMovil navigations={navigations} /> */}
+            <NavbarMovil navigations={navigations} />
             <NavbarDesktop navigations={navigations} />
         </>
     )

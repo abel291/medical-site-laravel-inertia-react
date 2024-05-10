@@ -20,7 +20,7 @@
     @apply text-lg leading-6 font-semibold;
 }
 .btn-primary {
-    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-orange-700 text-white hover:bg-orange-600 active:bg-orange-800 active:text-white/80;
+    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-primary-700 text-white hover:bg-primary-600 active:bg-primary-800 active:text-white/80;
 }
 .btn-danger {
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 active:bg-red-700 active:text-white/80;
@@ -30,5 +30,19 @@
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary-600 hover:text-primary-500 active:text-primary-700 border border-primary-600;
 }
 .bg-primary {
-    @apply bg-primary-700/5;
+    @apply bg-primary-700;
+}
+.gradient-primary {
+    @apply bg-gradient-to-l from-primary-700/90  to-primary-800/90;
+}
+
+.embla {
+    overflow: hidden;
+}
+.embla__container {
+    display: flex;
+}
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
 }

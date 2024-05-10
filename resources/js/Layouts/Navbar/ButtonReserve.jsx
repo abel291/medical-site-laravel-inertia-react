@@ -8,7 +8,7 @@ const ButtonReserve = () => {
     const [open, setOpen] = useState(false)
     return (
         <div >
-            <button className='px-6 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-primary-700 text-white hover:bg-primary-600 active:bg-primary-800 active:text-white/80' onClick={(() => setOpen(true))}>
+            <button className='px-4 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-orange-400 text-white hover:bg-orange-500 active:bg-orange-500 active:text-white/80 border-2 border-white' onClick={(() => setOpen(true))}>
                 <span>Hacer consulta</span>
                 <CalendarDaysIcon className=' ml-3 w-6 h-6' />
             </button>

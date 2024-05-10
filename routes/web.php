@@ -14,6 +14,15 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('/d', function () {
+    return Inertia::render('Home/Home', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('home2');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

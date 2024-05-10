@@ -16,12 +16,12 @@ const Footer = () => {
 
     ]
     return (
-        <footer className='bg-primary-800 text-white text-lg'>
+        <footer className='bg-primary text-white text-lg'>
             <div className='container text-base'>
                 <div className='py-14 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 md:gap-y-5 xl:gap-x-10'>
 
                     <div className=' md:col-span-2 lg:col-span-3 xl:col-span-2'>
-                        <ApplicationLogo bgIcon='bg-white' colorIcon='text-primary-700' />
+                        <ApplicationLogo bgIcon='bg-white' colorIcon='text-primary-600' textColor='text-white' />
                         <p className='mt-5'>
                             Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500
                         </p>
