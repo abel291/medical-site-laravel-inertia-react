@@ -18,11 +18,11 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'entry' => fake()->text(120),
+            'entry' => fake()->words(20, true),
             'description' => fake()->text(2000),
             'slug' => fake()->slug(),
-            'image' => fake()->slug(),
-            'thumb' => fake()->slug(),
+            'image' => '/img/img-1.jpg',
+            'thumb' => '/img/img-1.jpg',
         ];
     }
 }

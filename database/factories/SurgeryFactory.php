@@ -17,13 +17,13 @@ class SurgeryFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->sentence();
+        $title = fake()->sentence(rand(2, 3), true);
         return [
             'name' => $title,
             'slug' => Str::slug($title),
-            'entry' => fake()->sentence(),
-            'image' => fake()->image(),
-            'thumb' => fake()->image(),
+            'entry' => fake()->words(15, true),
+            'image' => "/img/img-1.jpg",
+            'thumb' => "/img/img-1.jpg",
             'description' => fake()->text(800),
         ];
     }

@@ -22,7 +22,7 @@ class DoctorFactory extends Factory
             'email2' => fake()->email(),
             'phone' => fake()->phoneNumber(),
             'phone2' => fake()->phoneNumber(),
-            'entry' => fake()->sentence(),
+            'entry' => fake()->words(15, true),
             'description' => fake()->text(800),
             'image' => fake()->image(),
             'thumb' => fake()->image(),

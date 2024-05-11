@@ -17,7 +17,7 @@ class DoctorSeeder extends Seeder
     public function run(): void
     {
         Doctor::truncate();
-        $doctors = Doctor::factory(5)
+        $doctors = Doctor::factory(16)
             ->has(Image::factory()->count(2))
             ->has(Meta::factory())
             ->create();

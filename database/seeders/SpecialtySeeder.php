@@ -19,15 +19,40 @@ class SpecialtySeeder extends Seeder
         Specialty::truncate();
         Surgery::truncate();
 
-        Specialty::factory(2)
-            ->has(Image::factory()->count(2))
-            ->has(Meta::factory())
-            ->has(
-                Surgery::factory()
-                    ->has(Image::factory()->count(2))
-                    ->has(Meta::factory())
-                    ->count(rand(1, 4))
-            )
-            ->create();
+        $specialties = [
+            'Endocrinología',
+            'Pediatría',
+            'Gineco obstetricia',
+            'Cirugía',
+            'Psiquiatría',
+            'Cardiología',
+            'Dermatología',
+            'Gastroenterología',
+            'Oftalmología',
+            'Otorrinolaringología',
+            'Neumología',
+            'Neurología',
+            'Radiología',
+            'Anestesiología',
+            'Oncología',
+            'Urología',
+            'Medicina física y rehabilitación',
+            'Medicina Intensiva',
+        ];
+
+        foreach ($specialties as $specialty) {
+            Specialty::factory()
+                ->has(Image::factory()->count(2))
+                ->has(Meta::factory())
+                ->has(
+                    Surgery::factory()
+                        ->has(Image::factory()->count(2))
+                        ->has(Meta::factory())
+                        ->count(rand(4, 8))
+                )
+                ->create([
+                    'name' => $specialty
+                ]);
+        }
     }
 }

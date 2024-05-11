@@ -18,7 +18,7 @@ class MetaFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'desc' => fake()->paragraph(),
+            'desc' => fake()->sentence(),
         ];
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('metas', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
             $table->string('extra')->nullable();
             $table->morphs('model');
             $table->timestamps();

@@ -30,7 +30,7 @@
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary-600 hover:text-primary-500 active:text-primary-700 border border-primary-600;
 }
 .bg-primary {
-    @apply bg-primary-700;
+    @apply bg-primary-700/70;
 }
 .gradient-primary {
     @apply bg-gradient-to-l from-primary-700/90  to-primary-800/90;
@@ -45,4 +45,11 @@
 .embla__slide {
     flex: 0 0 100%;
     min-width: 0;
+}
+
+.py-section {
+    @apply py-14 md:py-20 lg:py-24;
+}
+.title-section {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold;
 }

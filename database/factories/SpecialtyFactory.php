@@ -10,22 +10,22 @@ use Illuminate\Support\Str;
  */
 class SpecialtyFactory extends Factory
 {
-	/**
-	 * Define the model's default state.
-	 *
-	 * @return array<string, mixed>
-	 */
-	public function definition(): array
-	{
-		$title = fake()->sentence();
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $title = fake()->sentence(rand(2, 3), true);
 
-		return [
-			'name' => $title,
-			'slug' => Str::slug($title),
-			'entry' => fake()->sentence(),
-			'image' => fake()->image(),
-			'thumb' => fake()->image(),
-			'description' => fake()->text(800),
-		];
-	}
+        return [
+            'name' => $title,
+            'slug' => Str::slug($title),
+            'entry' => fake()->words(15, true),
+            'image' => '/img/specialties/specialty-1.jpg',
+            'thumb' => '/img/specialties/specialty-1.jpg',
+            'description' => fake()->text(800),
+        ];
+    }
 }
