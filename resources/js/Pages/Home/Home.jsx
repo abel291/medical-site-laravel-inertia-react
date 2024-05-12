@@ -5,8 +5,10 @@ import BannerHome from './BannerHome'
 import ServicesHome from './ServicesHome'
 import PostHome from './PostHome'
 import AppointmentsSection from './AppointmentsSection'
+import DoctorsHome from './DoctorsHome'
+import TestimonialHome from './TestimonialHome'
 
-const Home = ({ services }) => {
+const Home = ({ services, doctors }) => {
     return (
         <Layout>
             <Head title='Home'></Head>
@@ -14,6 +16,8 @@ const Home = ({ services }) => {
             <PostHome />
             <ServicesHome />
             <AppointmentsSection />
+            <DoctorsHome doctors={doctors} />
+            <TestimonialHome />
         </Layout>
     )
 }

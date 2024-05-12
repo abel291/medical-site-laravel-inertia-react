@@ -19,8 +19,16 @@
 .title {
     @apply text-lg leading-6 font-semibold;
 }
+.btn {
+    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50;
+}
 .btn-primary {
-    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-primary-700 text-white hover:bg-primary-600 active:bg-primary-800 active:text-white/80;
+    @apply focus-visible:ring-1 focus-visible:ring-neutral-950  bg-primary-700 text-white hover:bg-primary-600 active:bg-primary-800 active:text-white/80;
+}
+.btn-orange {
+    @apply px-4 py-2 text-lg inline-flex items-center justify-center whitespace-nowrap rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50
+    bg-white text-orange-500 hover:bg-orange-500 hover:text-white active:bg-orange-500 active:text-white/80 border-2
+     border-orange-500;
 }
 .btn-danger {
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 active:bg-red-700 active:text-white/80;
@@ -33,7 +41,7 @@
     @apply bg-primary-700/70;
 }
 .gradient-primary {
-    @apply bg-gradient-to-l from-primary-700/90  to-primary-800/90;
+    @apply bg-gradient-to-l from-primary-700/80  to-primary-800/80;
 }
 
 .embla {
@@ -51,5 +59,5 @@
     @apply py-14 md:py-20 lg:py-24;
 }
 .title-section {
-    @apply text-3xl md:text-4xl lg:text-5xl font-semibold;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
 }

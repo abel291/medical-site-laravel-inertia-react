@@ -4,12 +4,11 @@ import React from 'react'
 const CardPost = ({ title, entry, img, path = "" }) => {
     return (
         <div className='rounded-lg overflow-hidden shadow bg-white max-w-lg'>
-            <div className='relative'>
-                <img className='w-full object-cover aspect-video' src={img} alt="" />
-                <a class="opacity-0 hover:opacity-100 transition-opacity duration-300" rel="noreferrer" href={path} aria-label={title}>
-                    <div class="absolute inset-0 flex justify-center items-center "></div>
-                    <div class="absolute inset-0 bg-primary"></div>
-                </a>
+            <div className='relative overflow-hidden'>
+                <Link
+                    href={path} aria-label={title}>
+                    <img src={img} className='w-full object-cover aspect-video hover:scale-110 transition-transform duration-500 transform' alt="" />
+                </Link>
             </div>
             <div className='p-6'>
                 <Link href={path} >

@@ -5,6 +5,8 @@ import SpinnerLoading from './SpinnerLoading'
 
 
 const PrimaryButton = ({ className = '', Icon = null, disabled, children, isLoading = false, ...props }) => {
+
+
     return (
         <button
             {...props}

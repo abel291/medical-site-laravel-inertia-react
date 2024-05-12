@@ -21,7 +21,7 @@ export default {
                 sm: "2rem",
                 lg: "3rem",
                 xl: "4rem",
-                '2xl': "6rem",
+                '2xl': "8rem",
             },
         },
         colors: {
@@ -31,7 +31,7 @@ export default {
         },
         extend: {
             fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
     },

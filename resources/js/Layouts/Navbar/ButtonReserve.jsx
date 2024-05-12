@@ -1,16 +1,19 @@
 import PrimaryButton from '@/Components/PrimaryButton'
 import { Dialog, Transition } from '@headlessui/react'
-import { CalendarDaysIcon, XMarkIcon } from '@heroicons/react/16/solid'
+import { XMarkIcon } from '@heroicons/react/16/solid'
 import React, { Fragment, useState } from 'react'
 import FormReserve from './FormReserve'
+import { CalendarDaysIcon } from '@heroicons/react/24/solid'
+
 
 const ButtonReserve = () => {
     const [open, setOpen] = useState(false)
     return (
         <div >
-            <button className='px-4 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-orange-400 text-white hover:bg-orange-500 active:bg-orange-500 active:text-white/80 border-2 border-white' onClick={(() => setOpen(true))}>
+            <button className='btn-orange' onClick={(() => setOpen(true))}>
+                <CalendarDaysIcon className=' mr-1 w-6 h-6' />
                 <span>Hacer consulta</span>
-                <CalendarDaysIcon className=' ml-3 w-6 h-6' />
+
             </button>
 
             <div>

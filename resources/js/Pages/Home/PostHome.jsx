@@ -6,7 +6,7 @@ import React from 'react'
 const PostHome = () => {
     const { posts } = usePage().props
     return (
-        <div className='bg-primary-700/70'>
+        <div className='gradient-primary'>
             <div className='container  py-14 md:py-20 lg:py-24'>
                 <div className='text-center'>
                     <h2 className='title-section text-white  '>Noticias y Promociónes</h2>
