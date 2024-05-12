@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -22,5 +23,9 @@ class Specialty extends Model
     public function meta()
     {
         return $this->morphOne(Meta::class, 'model');
+    }
+    public function doctor(): BelongsTo
+    {
+        return $this->belongsTo(Doctor::class);
     }
 }

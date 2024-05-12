@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,8 +25,8 @@ class DoctorFactory extends Factory
             'phone2' => fake()->phoneNumber(),
             'entry' => fake()->words(15, true),
             'description' => fake()->text(800),
-            'image' => fake()->image(),
-            'thumb' => fake()->image(),
+            'image' => '/img/doctors/doctor-1.jpg',
+            'thumb' => '/img/doctors/doctor-1.jpg',
         ];
     }
 }

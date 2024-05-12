@@ -9,6 +9,7 @@ use App\Models\Surgery;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
+
         User::truncate();
         Image::truncate();
 
@@ -30,5 +33,6 @@ class DatabaseSeeder extends Seeder
             DoctorSeeder::class,
             PostSeeder::class,
         ]);
+        Schema::enableForeignKeyConstraints();
     }
 }

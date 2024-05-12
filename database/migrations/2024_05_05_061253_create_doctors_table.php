@@ -25,6 +25,12 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
+
+        Schema::create('doctor_surgery', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('surgery_id')->constrained()->cascadeOnDelete();
+        });
     }
 
     /**
@@ -33,5 +39,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('doctors');
+        Schema::dropIfExists('doctor_surgery');
     }
 };

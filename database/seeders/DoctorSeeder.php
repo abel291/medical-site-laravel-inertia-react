@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Doctor;
 use App\Models\Image;
 use App\Models\Meta;
+use App\Models\Specialty;
 use App\Models\Surgery;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,8 +23,17 @@ class DoctorSeeder extends Seeder
             ->has(Meta::factory())
             ->create();
 
-        Surgery::select('id')->get()->each(function ($surgery) use ($doctors) {
-            $surgery->doctors()->sync($doctors->random(rand(2, 4)));
+        Surgery::get()->each(function ($surgery) use ($doctors) {
+
+            $doctorsSelected = $doctors->random(rand(2, 4));
+
+            $surgery->doctors()->sync($doctorsSelected);
+        });
+
+        Specialty::with('surgeries.doctors')->get()->each(function ($specialty) {
+
+            $specialty->doctor_id = $specialty->surgeries->random()->doctors->random()->id;
+            $specialty->save();
         });
     }
 }
