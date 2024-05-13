@@ -2,7 +2,7 @@ import { BuildingOffice2Icon, HomeIcon, RectangleGroupIcon } from "@heroicons/re
 import { Link, usePage } from "@inertiajs/react";
 
 
-export default function ApplicationLogo({ bgIcon = 'bg-primary-600', colorIcon = 'text-white', textColor = 'text-primary-600' }) {
+export default function ApplicationLogo({ bgIcon = 'bg-primary', colorIcon = 'text-white', textColor = 'text-primary-600' }) {
     const { appName } = usePage().props
     return (
         <Link className="brand flex items-center" href={route('home')}>

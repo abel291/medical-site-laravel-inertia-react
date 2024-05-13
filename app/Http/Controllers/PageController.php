@@ -12,7 +12,7 @@ class PageController extends Controller
 {
     public function home()
     {
-        $specialties = Specialty::select('slug', 'name', 'entry', 'thumb')->take(5)->get();
+        $specialties = Specialty::select('id','slug', 'name', 'entry', 'thumb')->take(5)->get();
         $posts = Post::take(2)->get();
         $doctors = Doctor::has('specialty')->with('specialty')->take(4)->get();
         // dd($doctors->last()->specialty);

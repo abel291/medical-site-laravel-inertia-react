@@ -12,9 +12,8 @@ const ServicesHome = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8'>
                     <TitleSection title="Estamos proporcionando los mejores servicios." subTitle="ESPECIALIDADES MÉDICAS" />
 
-
                     {specialties.map((specialty) => (
-                        <Card title={specialty.name} entry={specialty.entry} img={specialty.thumb} />
+                        <Card key={specialty.id} path={route('service', specialty.slug)} title={specialty.name} entry={specialty.entry} img={specialty.thumb} />
                     ))}
 
                 </div>

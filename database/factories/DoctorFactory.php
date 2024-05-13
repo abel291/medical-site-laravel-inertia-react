@@ -19,6 +19,7 @@ class DoctorFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'slug' => fake()->slug(),
             'email' => fake()->email(),
             'email2' => fake()->email(),
             'phone' => fake()->phoneNumber(),

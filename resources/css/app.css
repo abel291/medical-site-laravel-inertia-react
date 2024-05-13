@@ -23,41 +23,40 @@
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50;
 }
 .btn-primary {
-    @apply focus-visible:ring-1 focus-visible:ring-neutral-950  bg-primary-700 text-white hover:bg-primary-600 active:bg-primary-800 active:text-white/80;
+    @apply focus-visible:ring-1 focus-visible:ring-neutral-950  bg-primary text-white hover:bg-primary-600 active:bg-primary-800 active:text-white/80;
 }
 .btn-orange {
-    @apply px-4 py-2 text-lg inline-flex items-center justify-center whitespace-nowrap rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50
-    bg-white text-orange-500 hover:bg-orange-500 hover:text-white active:bg-orange-500 active:text-white/80 border-2
-     border-orange-500;
+    @apply px-4 py-2  inline-flex items-center justify-center whitespace-nowrap rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50
+    bg-orange-400 hover:bg-orange-600 text-white active:bg-orange-700 active:text-white/80;
 }
 .btn-danger {
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 active:bg-red-700 active:text-white/80;
 }
 
 .btn-secondary {
-    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary-600 hover:text-primary-500 active:text-primary-700 border border-primary-600;
+    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary hover:text-primary-800 active:text-primary-700 border border-primary-600;
 }
 .bg-primary {
-    @apply bg-primary-700/70;
+    @apply bg-primary-700/80;
+}
+.text-primary {
+    @apply text-primary-700/80;
 }
 .gradient-primary {
     @apply bg-gradient-to-l from-primary-700/80  to-primary-800/80;
 }
 
-.embla {
-    overflow: hidden;
-}
-.embla__container {
-    display: flex;
-}
-.embla__slide {
-    flex: 0 0 100%;
-    min-width: 0;
-}
-
 .py-section {
     @apply py-14 md:py-20 lg:py-24;
+}
+.pt-section {
+    @apply pt-14 md:pt-20 lg:pt-24;
+}
+.pb-section {
+    @apply pb-14 md:pb-20 lg:pb-24;
 }
 .title-section {
     @apply text-3xl md:text-4xl lg:text-5xl font-bold;
 }
+
+/* //swiper */

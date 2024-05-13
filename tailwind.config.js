@@ -12,7 +12,6 @@ export default {
         './resources/js/**/*.jsx',
     ],
 
-
     theme: {
         container: {
             center: true,
@@ -26,9 +25,10 @@ export default {
         },
         colors: {
             ...colors,
-            primary: colors.teal,
-            secondary: colors.orange,
+            primary: colors.teal
         },
+
+
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

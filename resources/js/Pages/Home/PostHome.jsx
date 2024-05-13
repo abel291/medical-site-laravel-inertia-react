@@ -15,7 +15,7 @@ const PostHome = () => {
                 <div className='mt-10 max-w-6xl mx-auto '>
                     <div className='flex flex-col lg:flex-row gap-6 md:gap-10 items-center lg:items-stretch lg:justify-around'>
                         {posts.map((post) => (
-                            <CardPost title={post.title} entry={post.entry} img={post.thumb} />
+                            <CardPost post={post} key={post.id} />
                         ))}
                     </div>
                 </div>

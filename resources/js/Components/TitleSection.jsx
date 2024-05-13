@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TitleSection = ({ title, subTitle = '', bgIsWhite = true }) => {
+const TitleSection = ({ title, subTitle = '', bgIsWhite = true, className }) => {
 
     return (
-        <div >
+        <div className={className} >
             {subTitle && (
                 <span className={'uppercase  tracking-widest text-sm sm:text-base font-semibold ' +
                     (bgIsWhite ? 'text-primary-600' : 'text-orange-400')}>
