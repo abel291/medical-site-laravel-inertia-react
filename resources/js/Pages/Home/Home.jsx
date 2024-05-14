@@ -4,10 +4,10 @@ import React from 'react'
 // import BannerHome from './BannerHome'
 import ServicesHome from './ServicesHome'
 import PostHome from './PostHome'
-import AppointmentsSection from './AppointmentsSection'
-import DoctorsHome from './DoctorsHome'
 import TestimonialHome from './TestimonialHome'
 import BannerHome from './BannerHome'
+import DoctorsList from '@/Components/Sections/DoctorsList'
+import AppointmentsSection from '@/Components/Sections/AppointmentsSection'
 
 const Home = ({ services, doctors }) => {
     return (
@@ -17,7 +17,7 @@ const Home = ({ services, doctors }) => {
             <PostHome />
             <ServicesHome />
             <AppointmentsSection />
-            <DoctorsHome doctors={doctors} />
+            <DoctorsList doctors={doctors} />
             <TestimonialHome />
         </Layout>
     )

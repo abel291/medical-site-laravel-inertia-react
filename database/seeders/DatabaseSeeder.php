@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             SpecialtySeeder::class,
             DoctorSeeder::class,
             PostSeeder::class,
+            PageSeeder::class,
         ]);
         Schema::enableForeignKeyConstraints();
     }

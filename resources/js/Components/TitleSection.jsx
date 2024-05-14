@@ -1,16 +1,18 @@
 import React from 'react'
 
-const TitleSection = ({ title, subTitle = '', bgIsWhite = true, className }) => {
+const TitleSection = ({ title = '', subTitle = '', bgIsWhite = true, className, children }) => {
 
     return (
-        <div className={className} >
+        <div className={'max-w-3xl ' + className} >
             {subTitle && (
-                <span className={'uppercase  tracking-widest text-sm sm:text-base font-semibold ' +
-                    (bgIsWhite ? 'text-primary-600' : 'text-orange-400')}>
+                <span className={'uppercase  tracking-widest  font-bold ' +
+                    (bgIsWhite ? 'text-primary' : 'text-orange-300')}>
                     {subTitle}
                 </span>
             )}
-            <h2 className={'title-section mt-2 ' + (!bgIsWhite && 'text-white')}>{title}</h2>
+            <h2 className={'title-section mt-2 leading-relaxed ' + (!bgIsWhite && 'text-white')}>
+                {title ? title : children}
+            </h2>
         </div>
     )
 }

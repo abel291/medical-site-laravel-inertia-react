@@ -56,7 +56,7 @@
     @apply pb-14 md:pb-20 lg:pb-24;
 }
 .title-section {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+    @apply text-4xl md:text-4xl lg:text-5xl font-semibold;
 }
 
 /* //swiper */

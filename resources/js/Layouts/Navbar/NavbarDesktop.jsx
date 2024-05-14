@@ -9,16 +9,16 @@ const NavbarDesktop = ({ navigations }) => {
     const { auth } = usePage().props
     return (
 
-        <nav className="h-24 items-center z-40 relative hidden lg:flex border-b border-black/5 ">
+        <nav className="h-24 items-center z-40 relative hidden lg:flex shadow ">
             <div className='container flex  justify-between '>
-                <ApplicationLogo />
+                <ApplicationLogo textColor="text-neutral-700" />
                 <div className='flex items-center gap-x-7'>
                     {navigations.map((navigation, index) => (
                         <Link key={index} href={route(navigation.routeName)} className={
                             (route().current(navigation.routeName)
                                 ? 'text-primary-600   '
                                 : ' hover:text-primary-600 ') +
-                            '    '}>
+                            '  font-medium  '}>
                             {navigation.title}
                         </Link>
                     ))}

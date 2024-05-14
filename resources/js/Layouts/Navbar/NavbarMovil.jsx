@@ -25,11 +25,11 @@ export default function NavbarMovil({ navigations }) {
                     <ApplicationLogo textColor='text-neutral-800' />
                     <Sidebar navigations={navigations} open={open} setOpen={setOpen} />
                     <div className='flex items-center gap-x-2'>
-                        <Link className='bg-primary-600 py-1 px-1.5 rounded'>
-                            <PhoneIcon className='w-6 h-6 text-white ' />
+                        <Link className='bg-primary-600 py-1.5 px-1.5 rounded-full'>
+                            <PhoneIcon className='w-5 h-5 text-white ' />
                         </Link>
-                        <Link className='bg-primary-600 py-1 px-1.5 rounded'>
-                            <EnvelopeIcon className='w-6 h-6 text-white ' />
+                        <Link className='bg-primary-600 py-1.5 px-1.5 rounded-full'>
+                            <EnvelopeIcon className='w-5 h-5 text-white ' />
                         </Link>
                     </div>
                 </div>

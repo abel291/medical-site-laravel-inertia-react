@@ -1,24 +1,22 @@
 import ApplicationLogo from '@/Components/ApplicationLogo'
 import { BuildingOffice2Icon } from '@heroicons/react/16/solid'
-import { MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { ClockIcon, EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
 const Footer = () => {
     const navigations = [
         { title: 'Inicio', routeName: 'home' },
-        { title: 'Acerca de', routeName: 'home' },
-        { title: 'Habitaciones', routeName: 'home' },
-        { title: 'Fotos del hotel', routeName: 'home' },
-        { title: 'Blog', routeName: 'home' },
-        { title: 'Política de privacidad', routeName: 'home' },
-        { title: 'Verificar datos de la reservacion', routeName: 'home' },
-
+        { title: 'Acerca de', routeName: 'about' },
+        { title: 'Servicios', routeName: 'home2' },
+        { title: 'Fotos de la clinica', routeName: 'home2' },
+        { title: 'Blog', routeName: 'home2' },
+        { title: 'Política de privacidad', routeName: 'home2' },
     ]
     return (
         <footer className='gradient-primary text-white text-lg'>
             <div className='container text-base'>
-                <div className='py-14 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 md:gap-y-5 xl:gap-x-10'>
+                <div className='py-14 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 md:gap-y-5 xl:gap-x-12'>
 
                     <div className=' md:col-span-2 lg:col-span-3 xl:col-span-2'>
                         <ApplicationLogo bgIcon='bg-white' colorIcon='text-primary-600' textColor='text-white' />
@@ -45,18 +43,26 @@ const Footer = () => {
                     </ItemFooter>
 
                     <ItemFooter title={"Contactenos"}>
-                        <ul >
+                        <ul className='space-y-3 text-base'>
                             <li className='flex '>
-                                <MapPinIcon className='w-7 h-7 mr-3' />
+                                <MapPinIcon className='w-7 h-7 mr-3 text-orange-300' />
                                 <p>86574 Jones Isle <br />
                                     North Aryanna, IN 51541-9327
                                 </p>
                             </li>
-                            <li className='flex  mt-5'>
-                                <PhoneIcon className='w-6 h-6 mr-3' />
+                            <li className='flex '>
+                                <PhoneIcon className='w-6 h-6 mr-3 text-orange-300' />
                                 <p>316.960.3848 <br />
                                     +1-669-901-4595
                                 </p>
+                            </li>
+                            <li className='flex '>
+                                <EnvelopeIcon className='w-6 h-6 mr-3 text-orange-300' />
+                                <p>medical@medical.com</p>
+                            </li>
+                            <li className='flex '>
+                                <ClockIcon className='w-6 h-6 mr-3 text-orange-300' />
+                                <p>8 AM - 5 PM ,<br /> Lunes - Sabado</p>
                             </li>
                         </ul>
                     </ItemFooter>
@@ -98,7 +104,7 @@ const Footer = () => {
 const ItemFooter = ({ title, children }) => {
     return (
         <div>
-            <h4 className='mt-2 font-bold text-xl'>{title}</h4>
+            <h4 className='mt-2 font-bold text-xl '>{title}</h4>
             <div className='mt-2 lg:mt-5'>
                 {children}
             </div>
