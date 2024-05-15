@@ -36,4 +36,17 @@ class PageController extends Controller
 
         ]);
     }
+    public function specialties()
+    {
+        $page = Page::select('title', 'entry')->where('type', 'specialties')->first();
+        $specialties = Specialty::with('surgeries')->get();
+        $doctors = Doctor::has('specialty')->with('specialty')->take(4)->inRandomOrder()->get();
+        // dd($specialties);
+        return Inertia::render('Specialties/Specialties', [
+            'page' => $page,
+            'specialties' => $specialties,
+            'doctors' => $doctors,
+
+        ]);
+    }
 }

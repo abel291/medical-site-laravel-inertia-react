@@ -8,11 +8,11 @@ const CardDoctor = ({ doctor }) => {
                 <Link
                     href={route('doctor', doctor.slug)}
                     aria-label={doctor.name}>
-                    <img src={doctor.thumb} className='w-full object-cover aspect-square' alt="" />
+                    <img src={doctor.thumb} className='w-full object-cover aspect-square transform transition-transform duration-300 ease-out hover:scale-110' alt="" />
                 </Link>
             </div>
             <div className='mt-5'>
-                <Link href={route('service', doctor.specialty.slug)} className='font-semibold text-primary'>{doctor.specialty.name}</Link>
+                <Link href={route('specialty', doctor.specialty.slug)} className='font-semibold text-primary'>{doctor.specialty.name}</Link>
                 <Link
                     href={route('doctor', doctor.slug)}
                     className='mt-1.5 '  >

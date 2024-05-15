@@ -13,6 +13,7 @@ class PageSeeder extends Seeder
      */
     public function run(): void
     {
+        Page::truncate();
         $pages = [
             [
                 'title' => 'Acerca de Nosotros',
@@ -21,6 +22,10 @@ class PageSeeder extends Seeder
             [
                 'title' => 'Incio',
                 'type' => 'Home',
+            ],
+            [
+                'title' => 'Especialidades',
+                'type' => 'specialties',
             ],
             [
                 'title' => 'Blog',

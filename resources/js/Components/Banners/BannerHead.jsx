@@ -5,7 +5,7 @@ import React from 'react'
 const BannerHead = ({ title = "Inicio", breadcrumb = [] }) => {
     return (
         <div className='gradient-primary pt-20 md:pt-24 lg:pt-36 pb-12 lg:pb-24'>
-            <h1 className='text-center text-4xl lg:text-6xl text-orange-300 font-bold'>
+            <h1 className='text-center text-4xl lg:text-6xl text-orange-400 font-bold'>
                 {title}
             </h1>
             <ol className='mt-2 flex text-lg gap-x-1 justify-center items-center font-medium text-white'>

@@ -48,7 +48,7 @@ class SpecialtySeeder extends Seeder
                     Surgery::factory()
                         ->has(Image::factory()->count(2))
                         ->has(Meta::factory())
-                        ->count(rand(4, 8))
+                        ->count(rand(1, 5))
                 )
                 ->create([
                     'name' => $specialty

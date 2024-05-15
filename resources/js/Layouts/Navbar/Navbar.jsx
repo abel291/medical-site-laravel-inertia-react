@@ -8,11 +8,11 @@ const Navbar = () => {
     const navigations = [
         { title: 'Inicio', routeName: 'home', icon: HomeIcon },
         { title: 'Nostros', routeName: 'about', icon: UserGroupIcon },
-        { title: 'Servicios', routeName: 'home2', icon: SquaresPlusIcon },
+        { title: 'Especialidad', routeName: 'specialties', icon: SquaresPlusIcon },
         { title: 'Precios', routeName: 'home2', icon: CurrencyDollarIcon },
         { title: 'Blog', routeName: 'home2', icon: ChatBubbleBottomCenterTextIcon },
         { title: 'Contacto', routeName: 'home2', icon: PhoneIcon },
-
+        // { title: 'Servicios', type: 'componenet', ComponentNavbar: DropdownServices, ComponentNavbarMovil: DropdownServices },
 
     ]
     return (
