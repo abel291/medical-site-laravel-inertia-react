@@ -8,7 +8,7 @@ import { SwiperSlide } from 'swiper/react'
 
 const pagesBanner = [
     {
-        title: 'Nuestros mejores servicios y Tratamiento Popular Aquí.',
+        title: 'Nuestros mejores servicios y tratamiento populares aquí.',
         subTitle: 'CUIDAMOS DE TU SALUD',
         desc: 'Ofrecemos los tratamientos más novedosos e innovadores del mercado, cirugías mínimamente invasivas, procedimientos con láser y equipamiento tecnológico de última generación, diagnósticos a través de estudios del ADN y las más avanzadas técnicas quirúrgicas.',
         img: '/img/home/banner-1.jpg',
@@ -16,7 +16,7 @@ const pagesBanner = [
         pathTitle: 'Conocenos'
     },
     {
-        title: 'Estamos proporcionandoMejor y asequible Cuidado de la salud.',
+        title: 'Estamos proporcionando lo mas asequible para el cuidado de la salud.',
         subTitle: 'CÓMO TRABAJAMOS',
         desc: 'Una atención personalizada, clínicas con tecnología de vanguardia, profesionales médicos de renombre, un placentero viaje y un bajo costo hacen de Sublimis su mejor opción en el momento de elegir dónde y con quién operarse.',
         img: '/img/home/banner-2.jpg',
@@ -24,7 +24,7 @@ const pagesBanner = [
         pathTitle: 'Contactanos'
     },
     {
-        title: 'Un comprensivo Directorio para su Cuidado de la salud.',
+        title: 'Un comprensivo directorio para su el cuidado de la salud.',
         subTitle: 'SERVICIO SUPERIOR',
         desc: 'Ofrecemos los tratamientos más novedosos e innovadores del mercado, cirugías mínimamente invasivas, procedimientos con láser y equipamiento tecnológico de última generación, diagnósticos a través de estudios del ADN y las más avanzadas técnicas quirúrgicas.',
         img: '/img/home/banner-3.jpg',
@@ -47,16 +47,16 @@ const BannerHome = ({ title, breadcrumb = [] }) => {
                 }}>
                 {pagesBanner.map((data, index) => (
                     <SwiperSlide className={" relative "} key={index} >
-                        < div className='container pt-16 pb-12 lg:pt-28 lg:pb-20  ' >
+                        < div className='container pt-16 pb-12 lg:pt-28 lg:pb-24  ' >
                             <div className='lg:relative px-8 lg:px-0'>
                                 <div className='lg:flex items-center   lg:min-h-[500px] '>
                                     <div className='space-y-6  z-10'>
 
                                         <div>
-                                            <span className='uppercase  tracking-widest text-sm sm:text-base font-bold text-orange-300'>
+                                            <span className='uppercase  tracking-widest text-lg  text-primary mb-4'>
                                                 {data.subTitle}
                                             </span>
-                                            <h1 className='text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold lg:w-8/12  '>{data.title}</h1>
+                                            <h1 className='text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold lg:w-8/12  '>{data.title}</h1>
                                         </div>
                                         <p className=' text-lg lg:text-neutral-600 font-light lg:w-6/12'>
                                             {data.desc}

@@ -6,7 +6,7 @@ import ServicesHome from './ServicesHome'
 import PostHome from './PostHome'
 import TestimonialHome from './TestimonialHome'
 import BannerHome from './BannerHome'
-import DoctorsList from '@/Components/Sections/DoctorsList'
+import DoctorsListSection from '@/Components/Sections/DoctorsListSection'
 import AppointmentsSection from '@/Components/Sections/AppointmentsSection'
 
 const Home = ({ services, doctors }) => {
@@ -17,7 +17,7 @@ const Home = ({ services, doctors }) => {
             <PostHome />
             <ServicesHome />
             <AppointmentsSection />
-            <DoctorsList doctors={doctors} />
+            <DoctorsListSection doctors={doctors} />
             <TestimonialHome />
         </Layout>
     )
