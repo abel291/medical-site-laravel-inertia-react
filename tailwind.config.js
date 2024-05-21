@@ -21,12 +21,12 @@ export default {
                 sm: "2rem",
                 lg: "3rem",
                 xl: "4rem",
-                '2xl': "8rem",
+                '2xl': "10rem",
             },
         },
         colors: {
             ...colors,
-            primary: colors.teal
+            primary: colors.sky
         },
 
 

@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/react'
 import React from 'react'
 import SectionListSpecialties from './SectionListSpecialties'
 import ImageInfrastructureSection from './ImageInfrastructureSection'
-import DoctorsList from '@/Components/Sections/DoctorsList'
+import DoctorsListSection from '@/Components/Sections/DoctorsListSection'
 
 const Specialties = ({ specialties, page, doctors }) => {
     return (
@@ -18,7 +18,7 @@ const Specialties = ({ specialties, page, doctors }) => {
 
             <SectionListSpecialties specialties={specialties} />
             <ImageInfrastructureSection />
-            <DoctorsList doctors={doctors} />
+            <DoctorsListSection doctors={doctors} />
 
         </Layout>
     )

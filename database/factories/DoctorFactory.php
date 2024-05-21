@@ -24,10 +24,11 @@ class DoctorFactory extends Factory
             'email2' => fake()->email(),
             'phone' => fake()->phoneNumber(),
             'phone2' => fake()->phoneNumber(),
-            'entry' => fake()->words(15, true),
+            'entry' => fake()->sentence(40, false),
             'description' => fake()->text(800),
             'image' => '/img/doctors/doctor-1.jpg',
             'thumb' => '/img/doctors/doctor-1.jpg',
+            'start_date' => fake()->dateTimeBetween('-30 year', '-1 year'),
         ];
     }
 }

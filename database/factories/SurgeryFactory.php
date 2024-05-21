@@ -21,10 +21,10 @@ class SurgeryFactory extends Factory
         return [
             'name' => $title,
             'slug' => Str::slug($title),
-            'entry' => fake()->words(15, true),
-            'image' => "/img/img-1.jpg",
-            'thumb' => "/img/img-1.jpg",
-            'description' => fake()->text(800),
+            'entry' => fake()->sentence(50, false),
+            'image' => "/img/surgeries/surgery-1.jpg",
+            'thumb' => "/img/surgeries/surgery-1.jpg",
+            'description' => fake()->text(1800),
         ];
     }
 }

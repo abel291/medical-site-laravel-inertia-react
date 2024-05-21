@@ -24,13 +24,25 @@ return new class extends Migration
             $table->string('image');
             $table->string('thumb');
             $table->boolean('active')->default(1);
+            $table->dateTime('start_date');
+            $table->foreignId('specialty_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
+        //Sede: Cooper City
+        // Especialidad: General and Cosmetic Dentistry
+        // Educación: Nova Southeastern
+        // Certifications: Asociación Americana Dental
 
         Schema::create('doctor_surgery', function (Blueprint $table) {
             $table->id();
             $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
             $table->foreignId('surgery_id')->constrained()->cascadeOnDelete();
+        });
+
+        Schema::create('doctor_specialty', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('specialty_id')->constrained()->cascadeOnDelete();
         });
     }
 
@@ -41,5 +53,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('doctors');
         Schema::dropIfExists('doctor_surgery');
+        Schema::dropIfExists('doctor_specialty');
     }
 };

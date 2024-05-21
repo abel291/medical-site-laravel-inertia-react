@@ -5,18 +5,20 @@ import { Link } from '@inertiajs/react'
 import React from 'react'
 
 const SectionListSpecialties = ({ specialties }) => {
-    console.log(specialties)
     return (
-        <div className='container pt-section'>
-            <TitleSection className="mx-auto text-center"
-                title='Brindar atención médica a los más enfermos En Nuestra Comunidad.'
-                subTitle='NUESTROS SERVICIOS'
-            />
-            <div className='mt-title-section'>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                    {specialties.map((specialty) => (
-                        <CardSpecialty specialty={specialty} />
-                    ))}
+        <div className='bg-primary-50'>
+            <div className='container py-section'>
+                <TitleSection
+                    className='max-w-3xl text-center lg:text-left'
+                    title='La lista de tratamientos disponibles'
+                    subTitle='NUESTROS SERVICIOS'
+                />
+                <div className='mt-title-section'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8'>
+                        {specialties.map((specialty) => (
+                            <CardSpecialty key={specialty.id} specialty={specialty} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

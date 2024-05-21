@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('thumb');
             $table->text('description');
             $table->boolean('active')->default(1);
-            $table->foreignId('doctor_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

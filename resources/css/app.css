@@ -23,43 +23,39 @@
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50;
 }
 .btn-primary {
-    @apply focus-visible:ring-1 focus-visible:ring-neutral-950  bg-primary text-white hover:bg-primary-600 active:bg-primary-800 active:text-white/80;
+    @apply focus-visible:ring-1 focus-visible:ring-neutral-950 bg-primary text-white hover:bg-primary-700 active:bg-primary-900 active:text-white/80;
 }
-.btn-orange {
-    @apply px-4 py-2  inline-flex items-center justify-center whitespace-nowrap rounded-full font-semibold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 border-2 border-orange-300
-    text-orange-300 hover:bg-orange-300 hover:text-white active:bg-orange-400 active:text-white/80;
-}
-.btn-danger {
-    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 active:bg-red-700 active:text-white/80 font-semibold;
+.btn-rounded {
+    @apply btn-primary px-4 py-2  inline-flex items-center justify-center whitespace-nowrap rounded-full font-semibold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50;
 }
 
 .btn-secondary {
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary hover:text-primary-800 active:text-primary-700 border border-primary-600;
 }
 .bg-primary {
-    @apply bg-primary-700/80;
+    @apply bg-primary-600;
 }
 .text-primary {
-    @apply text-primary-700/80;
+    @apply text-primary-700;
 }
 .gradient-primary {
-    @apply bg-gradient-to-l from-primary-700/80  to-primary-800/80;
+    @apply bg-gradient-to-l from-primary-600 via-primary-700 to-primary-800;
 }
 
 .py-section {
-    @apply py-14 md:py-20 lg:py-24;
+    @apply py-14 md:py-16 lg:py-20;
 }
 .pt-section {
-    @apply pt-14 md:pt-20 lg:pt-24;
+    @apply pt-14 md:pt-16 lg:pt-20;
 }
 .pb-section {
-    @apply pb-14 md:pb-20 lg:pb-24;
+    @apply pb-14 md:pb-16 lg:pb-20;
 }
 .title-section {
     @apply text-4xl md:text-4xl lg:text-5xl font-semibold;
 }
 .mt-title-section {
-    @apply mt-10 lg:mt-16;
+    @apply mt-10 lg:mt-14;
 }
 h3 {
     @apply text-2xl font-semibold;

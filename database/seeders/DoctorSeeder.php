@@ -10,6 +10,8 @@ use App\Models\Surgery;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use function PHPUnit\Framework\isEmpty;
+
 class DoctorSeeder extends Seeder
 {
     /**
@@ -23,17 +25,34 @@ class DoctorSeeder extends Seeder
             ->has(Meta::factory())
             ->create();
 
-        Surgery::get()->each(function ($surgery) use ($doctors) {
+        $specialties = Specialty::with('surgeries')->get();
 
-            $doctorsSelected = $doctors->random(rand(2, 4));
+        $specialties->each(function ($specialty) use ($doctors) {
 
-            $surgery->doctors()->sync($doctorsSelected);
+            $doctorsSelectedSpecialty = $doctors->random(rand(1, 3));
+
+            $specialty->doctors()->sync($doctorsSelectedSpecialty);
+
+            $specialty->surgeries->each(function ($surgery) use ($doctorsSelectedSpecialty) {
+                $doctorsSelectedSurgeries = $doctorsSelectedSpecialty->random(1, $doctorsSelectedSpecialty->count());
+                $surgery->doctors()->sync($doctorsSelectedSurgeries);
+            });
         });
 
-        Specialty::with('surgeries.doctors')->get()->each(function ($specialty) {
+        foreach (Doctor::with('specialties')->get() as $key => $doctor) {
 
-            $specialty->doctor_id = $specialty->surgeries->random()->doctors->random()->id;
-            $specialty->save();
-        });
+            if ($doctor->specialties->isEmpty()) {
+
+                $specialtiesSelected = $specialties->random();
+                $doctor->specialties()->sync($specialtiesSelected);
+                $doctor->surgeries()->sync($specialtiesSelected->surgeries->random());
+
+                $doctor->specialty_id = $specialtiesSelected->id;
+            } else {
+                $doctor->specialty_id = $doctor->specialties->random()->id;
+            }
+
+            $doctor->save();
+        }
     }
 }

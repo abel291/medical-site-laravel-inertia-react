@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
@@ -11,6 +13,16 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class Doctor extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'start_date' => 'datetime',
+    ];
+    protected function startYear(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->start_date->format('Y'),
+        );
+    }
 
     public function images()
     {
@@ -24,12 +36,13 @@ class Doctor extends Model
     {
         return $this->belongsToMany(Surgery::class);
     }
-    public function surgery()
+
+    public function specialties(): BelongsToMany
     {
-        return $this->belongsToMany(Surgery::class)->wherePivot('primary', true)->first();
+        return $this->belongsToMany(Specialty::class);
     }
-    public function specialty(): HasOne
+    public function specialty(): BelongsTo
     {
-        return $this->hasOne(Specialty::class);
+        return $this->belongsTo(Specialty::class);
     }
 }
