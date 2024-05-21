@@ -1,35 +1,37 @@
-import { ArrowLongRightIcon, ArrowRightCircleIcon, CheckCircleIcon } from '@heroicons/react/16/solid'
+import { ArrowLongRightIcon, ArrowRightCircleIcon, ArrowRightIcon, CheckCircleIcon, MinusIcon } from '@heroicons/react/16/solid'
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
 const CardSpecialty = ({ specialty }) => {
     return (
-        <div className='rounded-lg overflow-hidden flex flex-col'>
-            <img src={specialty.thumb} className='object-cover object-center' alt="" />
+        <div className='rounded-xl overflow-hidden flex flex-col  bg-white border'>
+            <img src="/img/specialties/specialty-1.jpg" className='object-cover object-center' alt="" />
+            <div className='px-8 pt-8 pb-6 h-full flex flex-col gap-y-4 text-lg'>
 
-            <div className='p-6  bg-primary text-white h-full   flex flex-col gap-y-3 text-lg'>
                 <Link href={route('specialty', specialty.slug)} className='flex items-center' >
-                    <h3>{specialty.name}</h3>
-                    <ArrowLongRightIcon className='w-6 h-6 ml-4' />
+                    <h3 className='text-primary-700 text-2xl font-semibold'>{specialty.name}</h3>
+
                 </Link>
-                <p className='font-light  opacity-65 '>
+                <p className='opacity-80 font-light '>
                     {specialty.entry}
                 </p>
-                <ol className=' font-medium  space-y-1'>
+                <ol className='opacity-80'>
                     {specialty.surgeries.map((surgery) => (
-                        <li className='flex '>
-                            <CheckCircleIcon className='w-6 h-6 mr-1.5 mt-0.5 text-orange-300' />
-                            {surgery.name}
+                        <li key={surgery.id}>
+                            <Link className='flex text-primary-700 hover:translate-x-1 transition-transform'>
+                                {surgery.name}
+                                <ArrowRightIcon className='w-6 h-4 mr-1.5 mt-1.5 ' />
+                            </Link>
 
                         </li>
                     ))}
                 </ol>
-                <div className='grow flex  flex-col justify-end items-end'>
+                <div className='grow flex  flex-col items-end justify-end'>
                     <div className='mt-4'>
-                        <Link href={route('specialty', specialty.slug)} className='btn-orange'>
-                            <div className='inline-flex items-center'>
-                                Ver mas
-                                <ArrowRightCircleIcon className='w-5 h-5 ml-2' />
+                        <Link href={route('specialty', specialty.slug)} className='text-base text-primary-700'>
+                            <div className='flex items-center font-medium'>
+                                Mas detalles de la especialidad
+                                <ArrowRightIcon className='w-4 h-4 ml-2' />
                             </div>
 
                         </Link>

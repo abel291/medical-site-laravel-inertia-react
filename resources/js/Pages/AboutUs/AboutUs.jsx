@@ -9,25 +9,25 @@ import Section2AboutUs from './Section2AboutUs'
 import Section3AboutUs from './Section3AboutUs'
 import Section4AboutUs from './Section4AboutUs'
 import AppointmentsSection from '@/Components/Sections/AppointmentsSection'
-import DoctorsList from '@/Components/Sections/DoctorsList'
+import DoctorsListSection from '@/Components/Sections/DoctorsListSection'
 
 const AboutUs = ({ page = [], doctor, doctors }) => {
-    return (
-        <Layout>
-            <Head title={page.title}></Head>
-            <BannerHead title={page.title} breadcrumb={[
-                {
-                    title: page.title
-                }
-            ]} />
-            <Section1AboutUs doctor={doctor} />
-            <Section2AboutUs />
-            <Section3AboutUs />
-            <Section4AboutUs />
-            <AppointmentsSection />
-            <DoctorsList doctors={doctors} />
-        </Layout>
-    )
+	return (
+		<Layout>
+			<Head title={page.title}></Head>
+			<BannerHead title={page.title} breadcrumb={[
+				{
+					title: page.title
+				}
+			]} />
+			<Section1AboutUs doctor={doctor} />
+			<Section2AboutUs />
+			<Section3AboutUs />
+			<Section4AboutUs />
+			<AppointmentsSection />
+			<DoctorsListSection doctors={doctors} />
+		</Layout>
+	)
 }
 
 export default AboutUs

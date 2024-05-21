@@ -18,16 +18,15 @@ const aspects = [
 ]
 const Section4AboutUs = () => {
     return (
-        <div className='container pb-section'>
-            <TitleSection subTitle='CUIDANDO LA SALUD DE TI Y DE TU FAMILIA.' >
-                Proporcionamos todos los aspectos de
-                Prácticas médica para
-                ¡Toda la familia!
+        <div className='container py-section'>
+            <TitleSection className='max-w-3xl' subTitle='CUIDANDO LA SALUD DE TI Y DE TU FAMILIA.' >
+                Proporcionamos todos los aspectos de prácticas médica para
+                ¡toda la familia!
             </TitleSection>
             <div className='mt-16'>
                 <div className='flex flex-col lg:flex-row lg:items-center gap-10 '>
                     <div className='lg:w-5/12'>
-                        <h2 className='font-semibold text-2xl'>Bienvenido a medipro, donde ofrecemos atención médica integral adaptada a cada miembro de su familia.</h2>
+                        <h2 className='font-semibold text-2xl lg:text-3xl'>Bienvenido a medipro, donde ofrecemos atención médica integral adaptada a cada miembro de su familia.</h2>
                         <p className='mt-8 text-gray-500 font-light text-lg'>Nuestro dedicado equipo de profesionales de la salud está comprometido a brindarle a usted y a sus seres queridos servicios de atención médica personalizados y compasivos. Entendemos la importancia de la salud familiar.</p>
                         <ol className='mt-8 text-lg font-medium text-primary space-y-4'>
                             <li className='flex items-center'>

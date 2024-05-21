@@ -10,12 +10,12 @@ const NavbarDesktop = ({ navigations }) => {
     const { auth } = usePage().props
     return (
 
-        <nav className="h-24 items-center z-40 relative hidden lg:flex shadow ">
+        <nav className="h-20 items-center z-40 relative hidden lg:flex shadow ">
             <div className='container flex  justify-between '>
                 <ApplicationLogo textColor="text-neutral-700" />
-                <div className='flex items-center gap-x-7 font-medium'>
+                <div className='flex items-center gap-x-7  text-base'>
                     {navigations.map((navigation, index) =>
-                        <LinkNavbar navigation={navigation} />
+                        <LinkNavbar key={index} navigation={navigation} />
                     )}
 
 
@@ -38,9 +38,9 @@ const LinkNavbar = ({ navigation }) => {
     return (
         <Link href={route(navigation.routeName)} className={
             (route().current(navigation.routeName)
-                ? 'text-primary-600   '
-                : ' hover:text-primary-600 ') +
-            '   '}>
+                ? 'text-primary-700  font-medium '
+                : ' hover:text-primary-700 ') +
+            ' hover:-translate-y-1 transition-all py-2'}>
             {navigation.title}
         </Link>
     )

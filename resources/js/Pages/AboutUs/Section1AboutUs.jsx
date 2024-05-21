@@ -10,7 +10,7 @@ const Section1AboutUs = ({ doctor }) => {
                         title='Cuidando la salud y el bienestarSer De Familia.'
                         subTitle='SOBRE NOSOTROS'
                     />
-                    <p className='font-light mt-6 md:mt-8 text-gray-500'>
+                    <p className='font-light mt-6 md:mt-8 text-gray-500 lg:text-lg'>
                         Nuestro enfoque de atención médica centrado en la familia garantiza que cada miembro de su familia reciba atención personalizada y atención adaptada a sus necesidades únicas. Creemos en construir relaciones sólidas con nuestros pacientes, fomentando la confianza.
                     </p>
                     <div className='mt-8'>
@@ -20,7 +20,7 @@ const Section1AboutUs = ({ doctor }) => {
                                 <h3 className='text-2xl font-semibold'>{doctor.name}</h3>
                                 <p className='text-orange-300  font-medium'>{doctor.specialty.name}</p>
                                 <div className='border-t mt-3 mb-1'></div>
-                                <p className='text-gray-500'>{doctor.entry}</p>
+                                <p className='font-light lg:text-lg'>{doctor.entry}</p>
                             </div>
                         </div>
                     </div>

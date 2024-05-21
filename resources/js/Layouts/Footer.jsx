@@ -104,7 +104,7 @@ const Footer = () => {
 const ItemFooter = ({ title, children }) => {
     return (
         <div>
-            <h4 className='mt-2 font-bold text-xl '>{title}</h4>
+            <h4 className='mt-2 font-semibold text-orange-300 text-xl '>{title}</h4>
             <div className='mt-2 lg:mt-5'>
                 {children}
             </div>

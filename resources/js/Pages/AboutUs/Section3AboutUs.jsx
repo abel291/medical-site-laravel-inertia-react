@@ -21,8 +21,8 @@ const services = [
 const Section3AboutUs = () => {
     return (
         <div className='container py-section'>
-            <TitleSection subTitle='SERVICIOS PRINCIPALES' >
-                Somos una progresista Clinica medica.
+            <TitleSection className='max-w-3xl' subTitle='SERVICIOS PRINCIPALES' >
+                Somos una clinica medica progresista .
             </TitleSection>
             <div className='mt-10'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7'>

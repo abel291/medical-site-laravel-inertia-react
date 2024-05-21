@@ -19,7 +19,7 @@ const Section2AboutUs = () => {
                             Tu vida mejor<br />
                             Salud.
                         </TitleSection>
-                        <p className='text-white/70  mt-6 font-medium '>
+                        <p className='text-white/80  mt-6  lg:text-lg '>
                             Ofrecemos una amplia gama de servicios integrales de atención médica para abordar todos
                             los aspectos de su salud. Desde atención preventiva y exámenes de salud hasta tratamientos
                             especializados y manejo de enfermedades crónicas.

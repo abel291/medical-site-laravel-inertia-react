@@ -10,6 +10,8 @@ const Navbar = () => {
         { title: 'Nostros', routeName: 'about', icon: UserGroupIcon },
         { title: 'Especialidad', routeName: 'specialties', icon: SquaresPlusIcon },
         { title: 'Precios', routeName: 'home2', icon: CurrencyDollarIcon },
+        { title: 'Fotos de la clinica', routeName: 'home2', icon: PhoneIcon },
+
         { title: 'Blog', routeName: 'home2', icon: ChatBubbleBottomCenterTextIcon },
         { title: 'Contacto', routeName: 'home2', icon: PhoneIcon },
         // { title: 'Servicios', type: 'componenet', ComponentNavbar: DropdownServices, ComponentNavbarMovil: DropdownServices },
