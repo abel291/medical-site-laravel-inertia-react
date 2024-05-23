@@ -21,9 +21,9 @@ class SurgeryFactory extends Factory
         return [
             'name' => $title,
             'slug' => Str::slug($title),
-            'entry' => fake()->sentence(50, false),
-            'image' => "/img/surgeries/surgery-1.jpg",
-            'thumb' => "/img/surgeries/surgery-1.jpg",
+            'entry' => fake()->sentence(30, false),
+            'image' => "/img/surgeries/surgery-" . rand(1, 5) . ".jpg",
+            'thumb' => "/img/surgeries/surgery-" . rand(1, 5) . ".jpg",
             'description' => fake()->text(1800),
         ];
     }

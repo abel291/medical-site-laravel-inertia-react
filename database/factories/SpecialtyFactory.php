@@ -22,9 +22,9 @@ class SpecialtyFactory extends Factory
         return [
             'name' => $title,
             'slug' => Str::slug($title),
-            'entry' => fake()->words(15, true),
-            'image' => '/img/specialties/specialty-1.jpg',
-            'thumb' => '/img/specialties/specialty-1.jpg',
+            'entry' => fake()->sentence(15, false),
+            'image' => "/img/specialties/specialty-" . rand(1, 4) . ".jpg",
+            'thumb' => "/img/specialties/specialty-" . rand(1, 4) . ".jpg",
             'description' => fake()->text(800),
         ];
     }

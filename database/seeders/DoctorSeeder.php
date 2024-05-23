@@ -20,10 +20,16 @@ class DoctorSeeder extends Seeder
     public function run(): void
     {
         Doctor::truncate();
-        $doctors = Doctor::factory(16)
-            ->has(Image::factory()->count(2))
-            ->has(Meta::factory())
-            ->create();
+        for ($i = 0; $i < 13; $i++) {
+            Doctor::factory()
+                ->has(Image::factory()->count(2))
+                ->has(Meta::factory())
+                ->create([
+                    "image" => "/img/doctors/doctor-" . ($i + 1) . ".jpg",
+                    "thumb" => "/img/doctors/doctor-" . ($i + 1) . ".jpg",
+                ]);
+        }
+        $doctors = Doctor::get();
 
         $specialties = Specialty::with('surgeries')->get();
 
