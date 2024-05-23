@@ -13,7 +13,7 @@ const NavbarDesktop = ({ navigations }) => {
         <nav className="h-20 items-center z-40 relative hidden lg:flex shadow ">
             <div className='container flex  justify-between '>
                 <ApplicationLogo textColor="text-neutral-700" />
-                <div className='flex items-center gap-x-7  text-base'>
+                <div className='flex items-center gap-x-4  text-base font-medium'>
                     {navigations.map((navigation, index) =>
                         <LinkNavbar key={index} navigation={navigation} />
                     )}
@@ -40,7 +40,7 @@ const LinkNavbar = ({ navigation }) => {
             (route().current(navigation.routeName)
                 ? 'text-primary-700  font-medium '
                 : ' hover:text-primary-700 ') +
-            ' hover:-translate-y-1 transition-all py-2'}>
+            ' hover:-translate-y-0.5 transition-all py-2'}>
             {navigation.title}
         </Link>
     )

@@ -1,14 +1,16 @@
+import LinkArrowIcon from '@/Components/LinkArrowIcon'
 import { ArrowRightIcon } from '@heroicons/react/16/solid'
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
 const CardDoctorSpecialty = ({ doctor, specialtyTitle }) => {
     return (
-        <div className='md:flex rounded-lg overflow-hidden text-lg max-w-md md:max-w-full mx-auto bg-white'>
-            <div className='md:w-5/12 lg:w-4/12'>
-                <img className='object-cover object-center h-full' src={doctor.thumb} alt="" />
+        <div className='md:flex rounded-lg overflow-hidden text-lg max-w-md md:max-w-full mx-auto bg-white border'>
+            <div className='md:w-5/12 lg:w-4/12  bg-cover md:bg-center n aspect-video md:aspect-auto
+            ' style={{ backgroundImage: "url('" + doctor.thumb + "')" }}>
+                {/* <img className='object-cover object-top h-96 w-full' src={doctor.thumb} alt="" /> */}
             </div>
-            <div className='md:w-7/12 lg:w-8/12  px-8 pt-12 pb-8 flex flex-col'>
+            <div className='md:w-7/12 lg:w-8/12  px-8 pt-12 pb-8 flex flex-col '>
                 <p className='uppercase tracking-widest text-lg '>
                     Especialista en <span className='text-primary'>{specialtyTitle}</span>
                 </p>
@@ -20,13 +22,10 @@ const CardDoctorSpecialty = ({ doctor, specialtyTitle }) => {
                     <span className='font-light  inline-block opacity-85 '>
                         Trabajando desde {doctor.startYear}
                     </span>
-                    <Link href={route('doctor', doctor.slug)} className='text-base text-primary-700 group'>
-                        <div className='flex items-center font-medium'>
-                            Ver Medico
-                            <ArrowRightIcon className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' />
-                        </div>
+                    <LinkArrowIcon path={route('doctor', doctor.slug)} >
+                        Ver Medico
+                    </LinkArrowIcon>
 
-                    </Link>
                 </div>
 
             </div>

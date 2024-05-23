@@ -4,11 +4,11 @@ import React from 'react'
 const CardDoctor = ({ doctor }) => {
     return (
         <div className='  max-w-md'>
-            <div className='relative overflow-hidden rounded-lg'>
+            <div className='relative overflow-hidden rounded-lg' >
                 <Link href={route('doctor', doctor.slug)} aria-label={doctor.name} alt="">
                     <img src={doctor.thumb} className='w-full object-cover aspect-square transform transition-transform duration-300 ease-out hover:scale-110' />
                 </Link>
-            </div>
+            </div >
             <div className='mt-3'>
                 {doctor.specialty && (
                     <Link
@@ -27,7 +27,7 @@ const CardDoctor = ({ doctor }) => {
                 </span>
                 {/* <p className='font-light text-sm mt-2'>{doctor.entry}</p> */}
             </div>
-        </div>
+        </div >
     )
 }
 

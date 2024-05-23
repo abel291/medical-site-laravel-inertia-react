@@ -4,7 +4,7 @@ import { ArrowLeftCircleIcon, ArrowLongRightIcon, ArrowRightCircleIcon, CheckCir
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
-const SectionListSpecialties = ({ specialties }) => {
+const ListCardSpecialtiesSection = ({ specialties }) => {
     return (
         <div className='bg-primary-50'>
             <div className='container py-section'>
@@ -26,4 +26,4 @@ const SectionListSpecialties = ({ specialties }) => {
 }
 
 
-export default SectionListSpecialties
+export default ListCardSpecialtiesSection

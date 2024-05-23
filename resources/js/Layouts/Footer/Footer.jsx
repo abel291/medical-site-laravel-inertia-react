@@ -9,7 +9,7 @@ const Footer = () => {
     const navigations = [
         { title: 'Inicio', routeName: 'home' },
         { title: 'Acerca de', routeName: 'about' },
-        { title: 'Servicios', routeName: 'home2' },
+        { title: 'Especialidades', routeName: 'specialties' },
         { title: 'Fotos de la clinica', routeName: 'home2' },
         { title: 'Blog', routeName: 'home2' },
         { title: 'Política de privacidad', routeName: 'home2' },

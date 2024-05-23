@@ -8,17 +8,21 @@ import TestimonialHome from './TestimonialHome'
 import BannerHome from './BannerHome'
 import DoctorsListSection from '@/Components/Sections/DoctorsListSection'
 import AppointmentsSection from '@/Components/Sections/AppointmentsSection'
+import ContactHomeSection from './ContactHomeSection'
+import AboutHospitalHome from './AboutHospitalHome'
 
 const Home = ({ services, doctors }) => {
     return (
         <Layout>
             <Head title='Home'></Head>
             <BannerHome />
-            <PostHome />
+            <ContactHomeSection />
+            <AboutHospitalHome />
             <ServicesHome />
             <AppointmentsSection />
             <DoctorsListSection doctors={doctors} />
             <TestimonialHome />
+            <PostHome />
         </Layout>
     )
 }

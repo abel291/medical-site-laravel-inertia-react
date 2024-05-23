@@ -5,7 +5,7 @@ import { PlayCircleIcon, PlayIcon } from '@heroicons/react/16/solid'
 import FsLightbox from 'fslightbox-react'
 import React, { useState } from 'react'
 
-const Section2AboutUs = () => {
+const VideoSectionAboutUs = () => {
     return (
         <div className='gradient-primary'>
             <div className='container py-section '>
@@ -14,7 +14,7 @@ const Section2AboutUs = () => {
                         <img className='w-full object-cover object-center rounded' src="/img/about-us/about-3.jpg" alt="" />
                     </div>
                     <div className='lg:w-5/12 mt-10 lg:mt-0'>
-                        <TitleSection bgIsWhite={false} className="text-white" subTitle='QUIENES SOMOS' >
+                        <TitleSection bg='primary' className="text-white" subTitle='QUIENES SOMOS' >
                             Mejorando la calidad de<br />
                             Tu vida mejor<br />
                             Salud.
@@ -62,9 +62,4 @@ const ButtonVideo = () => {
     );
 }
 
-export default Section2AboutUs
-// QUIENES SOMOS
-// Mejorando la calidad de
-// Tu vida mejor
-// Salud.
-// Ofrecemos una amplia gama de servicios integrales de atención médica para abordar todos los aspectos de su salud. Desde atención preventiva y exámenes de salud hasta tratamientos especializados y manejo de enfermedades crónicas.
+export default VideoSectionAboutUs

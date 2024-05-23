@@ -3,7 +3,7 @@ import React from 'react'
 
 const PriceDescription = () => {
     return (
-        <div className='grid grid-cols-3 gap-4  '>
+        <div className='grid  grid-cols-2  md:grid-cols-3 lg:md:grid-cols-2 xl:md:grid-cols-3 gap-2 md:gap-4 lg:gap-8 bg-primary-500/15 p-4 md:p-8 lg:px-14  lg:py-8 rounded '>
             <ItemDesc title='Duración' desc='Variable' />
             <ItemDesc title='Recuperación' desc='7 Días' Icon={HeartIcon} />
             <ItemDesc title='Anestesia' desc='General' Icon={MoonIcon} />
@@ -15,15 +15,13 @@ const PriceDescription = () => {
 }
 const ItemDesc = ({ title = '', desc = '', Icon = ClockIcon }) => {
     return (
-        <div className='  font-medium  flex items-center gap-x-1 text-lg'>
-
-            <div className=''>
-                <div className='flex items-center text-primary opacity-75'>
-                    <Icon className='w-5 h-5  mr-1' />
-                    <h4 className=''>{title}</h4>
-                </div>
-
-                <p className=' text-neutral-600 font-medium'>{desc}</p>
+        <div className='flex items-center gap-x-1.5 font-semibold'>
+            <div>
+                <Icon className='w-10 lg:w-12 text-primary opacity-55' />
+            </div>
+            <div>
+                <h4 className='opacity-75 text-primary lg:text-lg'>{title}</h4>
+                <p className=' text-neutral-800/70 lg:text-xl '>{desc}</p>
             </div>
         </div>
     )

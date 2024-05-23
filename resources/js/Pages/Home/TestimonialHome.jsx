@@ -7,50 +7,44 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 import CarouselContainer from '@/Components/Carousel/CarouselContainer';
 import "swiper/css/pagination";
 const TestimonialHome = () => {
-    const testimonials = [
-        {
-            name: 'Emily Davis',
-            img: 'img',
-            job: 'CEO of Digital Marketing',
-            text: 'Highly doctors and compassionate skilled healthcare with a patient-centered healthcare patient-centered healthcare with a approach doctors and compassionate staff.'
-        },
-        {
-            name: 'Emily Davis',
-            img: 'img',
-            job: 'CEO of Digital Marketing',
-            text: 'Highly doctors and compassionate skilled healthcare with a patient-centered healthcare patient-centered healthcare with a approach doctors and compassionate staff.'
-        },
-        {
-            name: 'Emily Davis',
-            img: 'img',
-            job: 'CEO of Digital Marketing',
-            text: 'Highly doctors and compassionate skilled healthcare with a patient-centered healthcare patient-centered healthcare with a approach doctors and compassionate staff.'
-        },
-        {
-            name: 'Emily Davis',
-            img: 'img',
-            job: 'CEO of Digital Marketing',
-            text: 'Highly doctors and compassionate skilled healthcare with a patient-centered healthcare patient-centered healthcare with a approach doctors and compassionate staff.'
-        },
-        {
-            name: 'Emily Davis',
-            img: 'img',
-            job: 'CEO of Digital Marketing',
-            text: 'Highly doctors and compassionate skilled healthcare with a patient-centered healthcare patient-centered healthcare with a approach doctors and compassionate staff.'
-        },
-        {
-            name: 'Emily Davis',
-            img: 'img',
-            job: 'CEO of Digital Marketing',
-            text: 'Highly doctors and compassionate skilled healthcare with a patient-centered healthcare patient-centered healthcare with a approach doctors and compassionate staff.'
-        },
+
+    const testimonials = [{
+        name: "Sra. Luisa Terrazas Tercero",
+        job: "CEO of Digital Marketing",
+        text: "Sed vero maxime maxime sint dicta aspernatur et voluptatum debitis qui consequatur ut et aut."
+    },
+    {
+        name: "Lic. Leo Sanabria Tercero",
+        job: "Stundet",
+        text: "Sed architecto voluptatibus illum ullam laudantium sed et molestiae maxime voluptas numquam qui necessitatibus et."
+    },
+    {
+        name: "Dr. Mireia Feliciano",
+        job: "Accountant",
+        text: "Enim praesentium asperiores harum ut esse id atque sit illo magnam nihil velit tenetur occaecati."
+    },
+    {
+        name: "Carlota Medrano Tercero",
+        job: "Engineer",
+        text: "Totam alias voluptate rerum est et suscipit et quod similique non voluptas non esse velit."
+    },
+    {
+        name: "Noa Más Hijo",
+        job: "Doctor",
+        text: "Dolorum ipsam ipsam eos neque qui voluptate et consequuntur quos ratione debitis in voluptas inventore."
+    },
+    {
+        name: "Miguel Ángel Soriano",
+        job: "Construction",
+        text: "Aliquid atque provident similique et architecto qui nostrum voluptatum qui rerum consequuntur adipisci sapiente mollitia."
+    }
     ]
 
     return (
         <div>
-            <div className='relative  py-section'>
+            <div className='relative  pt-section bg-primary-100 z-10'>
                 <div className='container'>
-                    <TitleSection bgIsWhite={false} className="text-white max-w-xl" title="Lo que dicen los pacientes sobre nosotros."
+                    <TitleSection bg="primary" className="text-white max-w-xl" title="Lo que dicen los pacientes sobre nosotros."
                         subTitle="Testimonial" />
 
                     <div className='mt-12'>
@@ -82,7 +76,7 @@ const TestimonialHome = () => {
                                         spaceBetween: 25,
                                     },
                                     1536: {
-                                        slidesPerView: 3.2,
+                                        slidesPerView: 3.3,
                                         spaceBetween: 25,
                                     },
 

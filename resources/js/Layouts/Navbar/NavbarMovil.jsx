@@ -20,15 +20,15 @@ export default function NavbarMovil({ navigations }) {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 ">
                 <div className="relative flex h-16 items-center justify-between">
                     <button onClick={() => setOpen(true)} type='button' className='-m-[10px] p-[10px]'>
-                        <Bars3Icon onClick={() => setOpen(false)} className=" text-primary-500 block h-7 w-7" aria-hidden="true" />
+                        <Bars3Icon onClick={() => setOpen(false)} className=" text-primary block h-7 w-7" aria-hidden="true" />
                     </button>
                     <ApplicationLogo textColor='text-neutral-800' />
                     <Sidebar navigations={navigations} open={open} setOpen={setOpen} />
                     <div className='flex items-center gap-x-2'>
-                        <Link className='bg-primary-600 py-1.5 px-1.5 rounded-full'>
+                        <Link className='bg-primary py-1.5 px-1.5 rounded-full'>
                             <PhoneIcon className='w-5 h-5 text-white ' />
                         </Link>
-                        <Link className='bg-primary-600 py-1.5 px-1.5 rounded-full'>
+                        <Link className='bg-primary py-1.5 px-1.5 rounded-full'>
                             <EnvelopeIcon className='w-5 h-5 text-white ' />
                         </Link>
                     </div>

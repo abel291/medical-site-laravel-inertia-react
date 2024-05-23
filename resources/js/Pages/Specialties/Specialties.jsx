@@ -2,7 +2,7 @@ import BannerHead from '@/Components/Banners/BannerHead'
 import Layout from '@/Layouts/Layout'
 import { Head } from '@inertiajs/react'
 import React from 'react'
-import SectionListSpecialties from './SectionListSpecialties'
+import ListCardSpecialtiesSection from './ListCardSpecialtiesSection'
 import ImageInfrastructureSection from './ImageInfrastructureSection'
 import DoctorsListSection from '@/Components/Sections/DoctorsListSection'
 
@@ -16,7 +16,7 @@ const Specialties = ({ specialties, page, doctors }) => {
                 }
             ]} />
 
-            <SectionListSpecialties specialties={specialties} />
+            <ListCardSpecialtiesSection specialties={specialties} />
             <ImageInfrastructureSection />
             <DoctorsListSection doctors={doctors} />
 

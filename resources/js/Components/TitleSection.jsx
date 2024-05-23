@@ -1,16 +1,33 @@
 import React from 'react'
 
-const TitleSection = ({ title = '', subTitle = '', bgIsWhite = true, className = '', children }) => {
+const TitleSection = ({ title = "", subTitle = "", className = "", bg = 'white', children }) => {
 
+    const textColor = {
+        primary: {
+            title: 'text-white',
+            subTitle: 'text-orange-300'
+        },
+        white: {
+            title: 'text-gray-800',
+            subTitle: 'text-primary '
+        },
+        light: {
+            title: 'text-gray-800',
+            subTitle: 'text-primary'
+        },
+        gray: {
+            title: 'text-gray-700',
+            subTitle: 'text-primary'
+        }
+    }
     return (
         <div className={className} >
             {subTitle && (
-                <span className={'uppercase tracking-widest text-lg font-medium ' +
-                    (bgIsWhite ? 'text-primary' : 'text-orange-300')}>
+                <span className={'uppercase tracking-widest text-lg font-medium ' + textColor[bg]?.subTitle}>
                     {subTitle}
                 </span>
             )}
-            <h2 className={"title-section mt-2  " + (!bgIsWhite && 'text-white')}>
+            <h2 className={"title-section mt-2  " + textColor[bg]?.title}>
                 {title ? title : children}
             </h2>
             {/* <div className='border-b-4 w-40 border-primary-700 rounded-full mt-1'></div> */}

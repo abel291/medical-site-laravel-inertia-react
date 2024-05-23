@@ -8,15 +8,31 @@ const CarouselImages = ({ images }) => {
     return (
         images.length > 1 ? (
 
-            <div className='relative'>
+            <div className='relative px-10'>
 
-                <CarouselContainer loop={true}
+                <CarouselContainer
+                    loop={true}
                     modules={[Navigation, Pagination]}
-                    spaceBetween={10}
+                    slidesPerView={1}
+                    spaceBetween={15}
+                    centeredSlides={true}
                     pagination={true}
                     navigation={{
                         nextEl: ".button-next-image",
                         prevEl: ".button-prev-image",
+                    }}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 1.4,
+                            spaceBetween: 20,
+
+                        },
+                        1024: {
+                            slidesPerView: 1.6,
+                            spaceBetween: 20,
+
+                        },
+
                     }}>
                     {
                         images.map((image) => (
@@ -29,11 +45,11 @@ const CarouselImages = ({ images }) => {
                 </CarouselContainer >
 
                 <div className='absolute inset-x-0 top-1/2 z-10  '>
-                    <div className='flex justify-between -mx-2   '>
-                        <button className="button-prev-image bg-primary rounded-full">
+                    <div className='flex justify-between   '>
+                        <button className="button-prev-image bg-gray-400 rounded-full">
                             <ChevronLeftIcon className='w-6 h-6 text-white' />
                         </button>
-                        <button className="button-next-image bg-primary rounded-full">
+                        <button className="button-next-image bg-gray-400 rounded-full">
                             <ChevronRightIcon className='w-6 h-6 text-white' />
                         </button>
                     </div>
@@ -47,8 +63,8 @@ const CarouselImages = ({ images }) => {
 
 const ImageCarousel = ({ image }) => {
     return (
-        <div>
-            <img className='object-cover object-center w-full  max-w-3xl mx-auto' src={image.img} alt={image.alt} title={image.title} />
+        <div >
+            <img className='object-cover object-center w-full  max-w-3xl mx-auto rounded-lg' src={image.img} alt={image.alt} title={image.title} />
         </div>
     )
 }

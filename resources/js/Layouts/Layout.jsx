@@ -1,8 +1,8 @@
 import { usePage } from '@inertiajs/react';
 import React from 'react'
 import Navbar from './Navbar/Navbar';
-import Footer from './Footer';
-import NavbarMovil from './Navbar/NavbarMovil';
+import Footer from './Footer/Footer';
+
 // import NotificationToast from '@/Components/NotificationToast';
 
 const Layout = ({ children }) => {
