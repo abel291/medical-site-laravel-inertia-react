@@ -9,7 +9,7 @@ const BannerHead = ({ title = "Inicio", breadcrumb = [], date = "" }) => {
                 {date && (
                     <p className='text-white/70 font-light  '>Actualizado {date}</p>
                 )}
-                <h1 className=' title-section text-white mt-1 lg:mt-2'>
+                <h1 className=' text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mt-1 lg:mt-2'>
                     {title}
                 </h1>
                 <ol className='mt-1 lg:mt-3 inline-flex text-lg font-medium gap-x-1  items-center  text-white'>

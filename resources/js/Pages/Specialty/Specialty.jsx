@@ -7,6 +7,7 @@ import React from 'react'
 
 import TitleSection from '@/Components/TitleSection'
 import CarouselDoctors from '@/Components/Carousel/CarouselDoctors'
+import CarouselDoctorsSection from '@/Components/Sections/CarouselDoctorsSection'
 const Specialty = ({ specialty }) => {
 
     return (
@@ -24,13 +25,8 @@ const Specialty = ({ specialty }) => {
             </div>
 
 
-            <div className=' py-section bg-primary-100'>
-                <div className='container'>
-                    <TitleSection bg='light' className='text-center' title="Conozca a nuestros médicos." subTitle="NUESTRO MEJOR MÉDICO" />
-                    <div className='mt-title-section'>
-                        <CarouselDoctors doctors={specialty.doctors} specialtyTitle={specialty.name} />
-                    </div>
-                </div>
+            <div className='py-section bg-primary-ligth'>
+                <CarouselDoctorsSection doctors={specialty.doctors} specialtyTitle={specialty.name} />
             </div>
 
             <div className=' py-section bg-gray-100'>

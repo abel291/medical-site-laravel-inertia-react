@@ -26,7 +26,7 @@ export default {
         },
         colors: {
             ...colors,
-            primary: colors.sky
+            primary: colors.teal
         },
 
 

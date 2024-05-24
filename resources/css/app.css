@@ -23,17 +23,20 @@
     @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50;
 }
 .btn-primary {
-    @apply focus-visible:ring-1 focus-visible:ring-neutral-950 bg-primary text-white hover:bg-primary-700 active:bg-primary-900 active:text-white/80;
+    @apply focus-visible:ring-1 focus-visible:ring-neutral-950 bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-900 active:text-white/80;
 }
 .btn-rounded {
     @apply btn-primary px-4 py-2  inline-flex items-center justify-center whitespace-nowrap rounded-full font-semibold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50;
 }
 
 .btn-secondary {
-    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary hover:text-primary-800 active:text-primary-700 border border-primary-600;
+    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-primary-100 text-primary-600 hover:bg-primary-600 active:text-primary-700 hover:text-white;
 }
 .bg-primary {
     @apply bg-primary-700;
+}
+.bg-primary-ligth {
+    @apply bg-primary-700/15;
 }
 .text-primary {
     @apply text-primary-700;

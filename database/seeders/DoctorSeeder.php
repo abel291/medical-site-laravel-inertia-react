@@ -20,7 +20,7 @@ class DoctorSeeder extends Seeder
     public function run(): void
     {
         Doctor::truncate();
-        for ($i = 0; $i < 13; $i++) {
+        for ($i = 0; $i < 13; $i++) { // exist 13 images
             Doctor::factory()
                 ->has(Image::factory()->count(2))
                 ->has(Meta::factory())
@@ -35,7 +35,7 @@ class DoctorSeeder extends Seeder
 
         $specialties->each(function ($specialty) use ($doctors) {
 
-            $doctorsSelectedSpecialty = $doctors->random(rand(1, 3));
+            $doctorsSelectedSpecialty = $doctors->random(rand(1, 6));
 
             $specialty->doctors()->sync($doctorsSelectedSpecialty);
 

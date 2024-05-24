@@ -14,7 +14,7 @@ Route::get('/specialties', [PageController::class, 'specialties'])->name('specia
 Route::get('/post/{slug}', [PageController::class, 'home'])->name('post');
 Route::get('/specialty/{slug}', [PageController::class, 'specialty'])->name('specialty');
 Route::get('/surgery/{slug}', [PageController::class, 'surgery'])->name('surgery');
-Route::get('/doctor/{slug}', [PageController::class, 'home'])->name('doctor');
+Route::get('/doctor/{slug}', [PageController::class, 'doctor'])->name('doctor');
 Route::get('/dd', [PageController::class, 'home'])->name('home2');
 
 Route::get('/dashboard', function () {

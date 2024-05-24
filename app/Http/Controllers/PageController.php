@@ -60,13 +60,9 @@ class PageController extends Controller
     }
     public function specialty($slug)
     {
-        $specialty = Specialty::with('surgeries', 'meta', 'images')->with('doctors')->where('slug', $slug)->firstOrFail();
+        $specialty = Specialty::with('surgeries', 'meta', 'images', 'doctors')->where('slug', $slug)->firstOrFail();
 
-        // $doctors = Doctor::whereHas('surgeries', function (Builder $query) use ($specialty) {
-        //     $query->where('specialty_id', $specialty->id);
-        // })->get();
 
-        // dd($specialty->first()->meta);
         return Inertia::render('Specialty/Specialty', [
             'specialty' => new SpecialtyResource($specialty),
         ]);
@@ -79,6 +75,14 @@ class PageController extends Controller
         return Inertia::render('Surgery/Surgery', [
             'surgery' => new SurgeryResource($surgery),
             'relatedSurgeries' => SurgeryResource::collection($relatedSurgeries),
+        ]);
+    }
+    public function doctor($slug)
+    {
+
+        $doctor = Doctor::with('meta', 'specialty', 'surgeries')->where('slug', $slug)->firstOrFail();
+        return Inertia::render('Doctor/Doctor', [
+            'doctor' => new DoctorResource($doctor),
         ]);
     }
 }

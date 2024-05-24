@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('phone2');
             $table->text('entry');
-            $table->text('description');
+            $table->text('description')->nullable();;
+            $table->string('address')->nullable();
             $table->string('image');
             $table->string('thumb');
             $table->boolean('active')->default(1);

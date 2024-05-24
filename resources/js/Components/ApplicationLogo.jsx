@@ -10,7 +10,7 @@ export default function ApplicationLogo({ bgIcon = 'bg-primary', colorIcon = 'te
                 <RectangleGroupIcon strokeWidth={1.5} className={'h-7 w-7 ' + colorIcon} />
             </span>
             <span className={"text-2xl font-semibold " + textColor}>
-                Dentist
+                Medical
             </span>
         </Link>
     );

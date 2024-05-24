@@ -3,7 +3,7 @@ import React from 'react'
 
 const PriceDescription = () => {
     return (
-        <div className='grid  grid-cols-2  md:grid-cols-3 lg:md:grid-cols-2 xl:md:grid-cols-3 gap-2 md:gap-4 lg:gap-8 bg-primary-500/15 p-4 md:p-8 lg:px-14  lg:py-8 rounded '>
+        <div className='grid  grid-cols-2  md:grid-cols-3 lg:md:grid-cols-2 xl:md:grid-cols-3 gap-2 md:gap-4 lg:gap-8 bg-primary-ligth p-4 md:p-8 lg:px-14  lg:py-8 rounded '>
             <ItemDesc title='Duración' desc='Variable' />
             <ItemDesc title='Recuperación' desc='7 Días' Icon={HeartIcon} />
             <ItemDesc title='Anestesia' desc='General' Icon={MoonIcon} />

@@ -38,9 +38,9 @@ const LinkNavbar = ({ navigation }) => {
     return (
         <Link href={route(navigation.routeName)} className={
             (route().current(navigation.routeName)
-                ? 'text-primary-700  font-medium '
+                ? 'text-primary-700  border-b-2 border-primary-700 '
                 : ' hover:text-primary-700 ') +
-            ' hover:-translate-y-0.5 transition-all py-2'}>
+            ' hover:-translate-y-0.5 transition-all py-2 '}>
             {navigation.title}
         </Link>
     )

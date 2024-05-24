@@ -15,12 +15,11 @@ const Footer = () => {
         { title: 'Política de privacidad', routeName: 'home2' },
     ]
     return (
-        <footer className='bg-primary-900 text-white text-lg'>
+        <footer className='bg-primary text-white text-lg'>
             <div className='container text-base'>
                 <div className='py-14 grid md:grid-cols-12 md:gap-10 xl:gap-6 divide-y md:divide-y-0 divide-white/10'>
 
-
-                    <ItemFooter className='md:col-span-12 lg:col-span-8 xl:col-span-3'>
+                    <ItemFooter className='pb-5 md:col-span-12 lg:col-span-8 xl:col-span-3'>
                         <ApplicationLogo bgIcon='bg-white' colorIcon='text-primary-600' textColor='text-white' />
                         <p className='mt-5'>
                             Nuestro enfoque de atención médica centrado en la familia garantiza que cada miembro
@@ -49,7 +48,7 @@ const Footer = () => {
 
                     </ItemFooter>
 
-                    <ItemFooter className='md:col-span-6 lg:col-span-4 xl:col-span-2' title={"Enlaces Rápidos"}>
+                    <ItemFooter className=' py-5 md:col-span-6 lg:col-span-4 xl:col-span-2' title={"Enlaces Rápidos"}>
                         <ul >
                             {navigations.map((navigation, index) => (
                                 <li key={index} className='mt-1'>
@@ -66,7 +65,7 @@ const Footer = () => {
                         </ul>
                     </ItemFooter>
 
-                    <ItemFooter className='md:col-span-6 lg:col-span-4 xl:col-span-3' title={"Contactenos"}>
+                    <ItemFooter className=' py-5 md:col-span-6 lg:col-span-4 xl:col-span-3' title={"Contactenos"}>
                         <ul className='space-y-3 text-base'>
                             <li className='flex '>
                                 <MapPinIcon className='w-5 h-5 mr-1.5 text-orange-300' />
@@ -91,7 +90,7 @@ const Footer = () => {
                         </ul>
                     </ItemFooter>
 
-                    <ItemFooter className='md:col-span-12 lg:col-span-8 xl:col-span-4' title={"Suscríbete a nuestro boletín"}>
+                    <ItemFooter className=' pt-5 md:col-span-12 lg:col-span-8 xl:col-span-4' title={"Suscríbete a nuestro boletín"}>
                         <p className='mb-4'>
                             Manténgase informado y nunca se pierda las últimas noticias y consejos de salud.
                         </p>
@@ -107,7 +106,7 @@ const Footer = () => {
 }
 const ItemFooter = ({ title = '', className = '', children }) => {
     return (
-        <div className={"py-5 md:py-0 " + className}>
+        <div className={" md:py-0 " + className}>
             {title && (
                 <h4 className='font-medium text-orange-300 text-xl  mb-2 lg:mb-5'>{title}</h4>
             )}

@@ -1,10 +1,11 @@
 import CarouselContainer from '@/Components/Carousel/CarouselContainer'
 import React from 'react'
 import { SwiperSlide } from 'swiper/react'
-import CardDoctorSpecialty from '../../Pages/Specialty/CardDoctorSpecialty'
+
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid'
 import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css/pagination';
+import CardBannerDoctor from '../Cards/CardBannerDoctor'
 const CarouselDoctors = ({ doctors, specialtyTitle }) => {
     return (
         doctors.length > 1 ? (
@@ -19,7 +20,7 @@ const CarouselDoctors = ({ doctors, specialtyTitle }) => {
                     }}>
                     {doctors.map((doctor) => (
                         <SwiperSlide className={" relative mb-10"} key={doctor.id} >
-                            <CardDoctorSpecialty key={doctor.id} doctor={doctor} specialtyTitle={specialtyTitle} />
+                            <CardBannerDoctor key={doctor.id} doctor={doctor} specialtyTitle={specialtyTitle} />
                         </SwiperSlide>
                     ))}
 
@@ -37,7 +38,7 @@ const CarouselDoctors = ({ doctors, specialtyTitle }) => {
                 </div>
             </div >
         ) : (
-            <CardDoctorSpecialty key={doctors[0].id} doctor={doctors[0]} specialtyTitle={specialtyTitle} />
+            <CardBannerDoctor key={doctors[0].id} doctor={doctors[0]} specialtyTitle={specialtyTitle} />
         )
     )
 }

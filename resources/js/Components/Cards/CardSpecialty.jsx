@@ -10,23 +10,24 @@ const CardSpecialty = ({ specialty }) => {
             <div className='px-8 pt-8 pb-6 h-full flex flex-col  text-lg'>
 
                 <Link href={route('specialty', specialty.slug)} className='flex items-center' >
-                    <h3 className='text-primary-700 text-xl font-semibold'>{specialty.name}</h3>
+                    <h3 className='text-primary-700 text-2xl font-semibold'>{specialty.name}</h3>
                 </Link>
-                <p className='opacity-80 font-light mt-2 text-lg'>
+                <p className='opacity-60  mt-2'>
                     {specialty.entry}
                 </p>
                 <ol className='opacity-80 mt-2'>
                     {specialty.surgeries.map((surgery) => (
                         <li key={surgery.id}>
                             <Link href={route('surgery', surgery.slug)} className='flex text-primary-700 hover:translate-x-1 transition-transform'>
+                                <MinusIcon className='w-4 mr-2' />
                                 {surgery.name}
                             </Link>
 
                         </li>
                     ))}
                 </ol>
-                <div className='grow flex  flex-col items-end justify-end'>
-                    <div className='mt-4 text-base'>
+                <div className='grow flex  flex-col items-end justify-end mt-6'>
+                    <div className=' text-base'>
                         <LinkArrowIcon path={route('specialty', specialty.slug)} >
                             Mas detalles
                         </LinkArrowIcon>

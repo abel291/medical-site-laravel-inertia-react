@@ -8,9 +8,8 @@ import { Head } from '@inertiajs/react'
 import React from 'react'
 import PriceDescription from './PriceDescription'
 import IndexConentSurgery from './IndexConentSurgery'
-
-import CarouselDoctorsSurgerySection from './CarouselDoctorsSurgerySection'
 import RelatedSurgeriesSection from './RelatedSurgeriesSection'
+import CarouselDoctorsSection from '@/Components/Sections/CarouselDoctorsSection'
 
 const Surgery = ({ surgery, relatedSurgeries }) => {
     // console.log(surgery)
@@ -26,6 +25,7 @@ const Surgery = ({ surgery, relatedSurgeries }) => {
                     title: surgery.name
                 }
             ]} />
+
             <div className='container'>
                 <div className='pt-section flex flex-col lg:flex-row justify-center lg:justify-between gap-10 place-content-between'>
                     <div className='hidden md:block'>
@@ -40,7 +40,9 @@ const Surgery = ({ surgery, relatedSurgeries }) => {
                 </div>
             </div>
 
-            <CarouselDoctorsSurgerySection surgery={surgery} />
+            <div className='py-section bg-primary-ligth' id='doctorSection'>
+                <CarouselDoctorsSection doctors={surgery.doctors} specialtyTitle={surgery.name} />
+            </div>
 
             <div className='container py-section' id='imageSection'>
                 <TitleSection className='text-center' title={"Imagenes de " + surgery.name} subTitle="Galería de fotos" />
