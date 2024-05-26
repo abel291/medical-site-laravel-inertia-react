@@ -16,6 +16,9 @@ Route::get('/specialty/{slug}', [PageController::class, 'specialty'])->name('spe
 Route::get('/surgery/{slug}', [PageController::class, 'surgery'])->name('surgery');
 Route::get('/doctor/{slug}', [PageController::class, 'doctor'])->name('doctor');
 Route::get('/dd', [PageController::class, 'home'])->name('home2');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/form-contact', [PageController::class, 'formContact'])->name('form-contact');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

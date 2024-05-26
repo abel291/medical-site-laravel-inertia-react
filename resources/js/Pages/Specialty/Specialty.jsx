@@ -8,6 +8,7 @@ import React from 'react'
 import TitleSection from '@/Components/TitleSection'
 import CarouselDoctors from '@/Components/Carousel/CarouselDoctors'
 import CarouselDoctorsSection from '@/Components/Sections/CarouselDoctorsSection'
+import FormContact from '../Contact/FormContact'
 const Specialty = ({ specialty }) => {
 
     return (
@@ -45,6 +46,7 @@ const Specialty = ({ specialty }) => {
                     </div>
                 </div>
             </div>
+            <FormContact />
 
 
 

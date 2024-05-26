@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Specialty;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
@@ -31,14 +32,21 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        // Cache::flush();
         return [
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
             ],
-            'services' => Cache::remember('services', 3600, function () {
-                return Specialty::select('id', 'name', 'slug')->get();
-            })
+            'specialties' => Cache::remember('services', 3600, function () {
+                return Specialty::select('id', 'name', 'slug')
+                    ->with(['surgeries' => function (Builder $query) {
+                        $query->select('id', 'specialty_id', 'name', 'slug');
+                    }])->get();
+            }),
+            'flash' => [
+                'message' => fn () => $request->session()->get('message')
+            ],
 
         ];
     }

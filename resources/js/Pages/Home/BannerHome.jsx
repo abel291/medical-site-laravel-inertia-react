@@ -56,7 +56,7 @@ const BannerHome = ({ title, breadcrumb = [] }) => {
                                             <span className='uppercase  tracking-widest text-lg  text-primary mb-4'>
                                                 {data.subTitle}
                                             </span>
-                                            <h1 className='text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold lg:w-8/12  '>{data.title}</h1>
+                                            <h1 className='text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold lg:w-8/12 text-neutral-900  '>{data.title}</h1>
                                         </div>
                                         <p className=' text-lg lg:text-neutral-600 font-light lg:w-6/12'>
                                             {data.desc}

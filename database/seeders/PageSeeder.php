@@ -31,9 +31,13 @@ class PageSeeder extends Seeder
                 'title' => 'Blog',
                 'type' => 'blog',
             ],
+            [
+                'title' => 'Contact',
+                'type' => 'contact',
+            ],
         ];
 
-        foreach ($pages as $key => $page) {
+        foreach ($pages as $page) {
             Page::factory()->create($page);
         }
     }

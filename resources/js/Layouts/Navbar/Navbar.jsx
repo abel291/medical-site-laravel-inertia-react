@@ -13,7 +13,7 @@ const Navbar = () => {
         { title: 'Fotos de la clinica', routeName: 'home2', icon: PhoneIcon },
 
         { title: 'Blog', routeName: 'home2', icon: ChatBubbleBottomCenterTextIcon },
-        { title: 'Contacto', routeName: 'home2', icon: PhoneIcon },
+        { title: 'Contacto', routeName: 'contact', icon: PhoneIcon },
         // { title: 'Servicios', type: 'componenet', ComponentNavbar: DropdownServices, ComponentNavbarMovil: DropdownServices },
 
     ]
