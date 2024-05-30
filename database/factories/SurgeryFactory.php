@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Helpers\Helpers;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -24,7 +25,7 @@ class SurgeryFactory extends Factory
             'entry' => fake()->sentence(30, false),
             'image' => "/img/surgeries/surgery-" . rand(1, 5) . ".jpg",
             'thumb' => "/img/surgeries/surgery-" . rand(1, 5) . ".jpg",
-            'description' => fake()->text(1800),
+            'description' => Helpers::htmlFake(13),
         ];
     }
 }

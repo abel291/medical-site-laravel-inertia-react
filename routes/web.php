@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -12,12 +13,15 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/acerca-de-nosotros', [PageController::class, 'about'])->name('about');
 Route::get('/specialties', [PageController::class, 'specialties'])->name('specialties');
 Route::get('/post/{slug}', [PageController::class, 'home'])->name('post');
-Route::get('/specialty/{slug}', [PageController::class, 'specialty'])->name('specialty');
+Route::get('/specialties/{slug}', [PageController::class, 'specialty'])->name('specialty');
 Route::get('/surgery/{slug}', [PageController::class, 'surgery'])->name('surgery');
-Route::get('/doctor/{slug}', [PageController::class, 'doctor'])->name('doctor');
+Route::get('/doctors', [PageController::class, 'doctors'])->name('doctors');
+Route::get('/doctors/{slug}', [PageController::class, 'doctor'])->name('doctor');
+Route::get('/blog', [PostController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [PostController::class, 'post'])->name('post');
 Route::get('/dd', [PageController::class, 'home'])->name('home2');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-Route::get('/form-contact', [PageController::class, 'formContact'])->name('form-contact');
+Route::post('/form-contact', [PageController::class, 'formContact'])->name('form-contact');
 
 
 Route::get('/dashboard', function () {

@@ -6,7 +6,7 @@ const SelectSurgery = ({ data, errors, handleChangeSurgery, surgeries }) => {
     return (
 
         surgeries.length > 0 && (
-            <div className='lg:col-span-3'>
+            <div className='md:col-span-3'>
                 <InputLabel htmlFor='surgery_id'>Tratamientos </InputLabel>
                 <select
                     value={data.surgery_id}

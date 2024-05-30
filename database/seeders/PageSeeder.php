@@ -28,6 +28,10 @@ class PageSeeder extends Seeder
                 'type' => 'specialties',
             ],
             [
+                'title' => 'Medicos',
+                'type' => 'doctors',
+            ],
+            [
                 'title' => 'Blog',
                 'type' => 'blog',
             ],

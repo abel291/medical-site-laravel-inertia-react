@@ -11,10 +11,10 @@ import AppointmentsSection from '@/Components/Sections/AppointmentsSection'
 import ContactHomeSection from './ContactHomeSection'
 import AboutHospitalHome from './AboutHospitalHome'
 
-const Home = ({ services, doctors }) => {
+const Home = ({ services, doctors, page }) => {
     return (
         <Layout>
-            <Head title='Home'></Head>
+            <Head title={page.title}></Head>
             <BannerHome />
             <ContactHomeSection />
             <AboutHospitalHome />

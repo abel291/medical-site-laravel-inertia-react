@@ -24,10 +24,10 @@ class AppointmentFormRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'phone' => 'required|max:255',
-            'email' => 'required|max:255|confirmed',
+            'email' => 'required|email|max:255|confirmed',
             'message' => 'required|max:1000',
-            'specialty_id' => 'required|exists:specialties,id',
-            'surgery_id' => 'exists:surgeries,id',
+            'specialty_id' => ($this->input('specialty_id') != null) ? 'required|exists:specialties,id' : '',
+            'surgery_id' => ($this->input('surgery_id') != null) ? 'exists:surgeries,id' : '',
             'type' => 'required|in:form,modal',
             'subscribed' => 'required|boolean',
         ];
@@ -36,6 +36,8 @@ class AppointmentFormRequest extends FormRequest
     {
         $this->merge([
             'subscribed' => $this->boolean('subscribed'),
+            'specialty_id' => ($this->input('specialty_id') == "otros") ? null : $this->input('specialty_id'),
+            'surgery_id' => ($this->input('surgery_id') == "otros") ? null : $this->input('surgery_id'),
         ]);
     }
 }

@@ -38,12 +38,14 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'specialties' => Cache::remember('services', 3600, function () {
-                return Specialty::select('id', 'name', 'slug')
-                    ->with(['surgeries' => function (Builder $query) {
-                        $query->select('id', 'specialty_id', 'name', 'slug');
-                    }])->get();
-            }),
+            'specialties' => function () {
+                return Cache::remember('services', 3600, function () {
+                    return Specialty::select('id', 'name', 'slug')
+                        ->with(['surgeries' => function (Builder $query) {
+                            $query->select('id', 'specialty_id', 'name', 'slug');
+                        }])->get();
+                });
+            },
             'flash' => [
                 'message' => fn () => $request->session()->get('message')
             ],

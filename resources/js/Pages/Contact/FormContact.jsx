@@ -10,59 +10,81 @@ import SelectSpecialty from './SelectSpecialty'
 import SelectSurgery from './SelectSurgery'
 import SelectDoctor from './SelectDoctor'
 import Checkbox from '@/Components/Checkbox'
+import { CheckCircleIcon } from '@heroicons/react/16/solid'
 
-const FormContact = () => {
+const FormContact = ({ specialty_id = '', surgery_id = '' }) => {
+
     const { specialties, formFake, errors } = usePage().props
 
     const [surgeries, setSurgeries] = useState([]);
     const [doctors, setDoctors] = useState([]);
     const [succesMessage, setSuccesMessage] = useState(false);
-    const { data, setData, get, processing } = useForm({
+
+    const { data, setData, post, processing } = useForm({
+        name: '',
+        phone: '',
+        email: '',
+        email_confirmation: '',
+        message: '',
         type: 'form',
         subscribed: false,
-        ...formFake
-        // name: '',
-        // phone: '',
-        // email: '',
-        // email_confirmation: '',
-        // message: '',
-        // specialty_id: '',
-        // surgery_id: '',
+        specialty_id: '',
+        surgery_id: '',
+        // ...formFake
     })
 
     const handleChange = (e) => {
         let target = e.target
-
         setData(target.name, target.value)
     }
 
     const handleChangeSpecialty = (e) => {
         let target = e.target
-        setData(target.name, target.value)
+        let newData = {
+            specialty_id: '',
+            surgery_id: '',
+        }
+        // setData(data => ({ ...data, [target.name]: target.value }));
+        newData.specialty_id = target.value
 
-    }
-
-    useEffect(() => {
-        if (!data.specialty_id || data.specialty_id == 'otros') {
-
-            setData('surgery_id', 'otros')
+        if (!newData.specialty_id || newData.specialty_id == 'otros') {
+            newData.surgery_id = 'otros'
             setSurgeries([]);
 
         } else {
-            let specialtySelected = specialties.find((specialty) => specialty.id == data.specialty_id);
+            filterSurgeryBySpecialty(newData.specialty_id)
 
-            if (specialtySelected) {
-                setSurgeries(specialtySelected.surgeries);
-            } else {
-                setSurgeries([]);
-            }
-            setData('surgery_id', '')
+            newData.surgery_id = ''
+            // setData(data => ({ ...data, 'surgery_id': '' }));
+
         }
-    }, [data.specialty_id])
+
+        setData(data => ({ ...data, ...newData }));
+    }
+
+    const filterSurgeryBySpecialty = (specialty_id) => {
+        let specialtySelected = specialties.find((specialty) => specialty.id == specialty_id);
+
+        if (specialtySelected) {
+            setSurgeries(specialtySelected.surgeries);
+        } else {
+            setSurgeries([]);
+        }
+    }
+    useEffect(() => {
+
+        setData(data => ({
+            ...data,
+            specialty_id: specialty_id,
+            surgery_id: surgery_id
+        }));
+        filterSurgeryBySpecialty(specialty_id)
+
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        get(route('form-contact'), {
+        post(route('form-contact'), {
             preserveScroll: true,
             preserveState: true,
             onSuccess: () => {
@@ -79,9 +101,9 @@ const FormContact = () => {
             <TitleSection className='text-center' title='Formulario de contacto' subTitle='COMPLETA EL FORMULARIO' />
 
             <div className='mt-title-section max-w-3xl mx-auto'>
-                <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-x-5 gap-y-5 sm:grid-cols-6 '>
+                <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-x-5 gap-y-5 md:grid-cols-6 '>
 
-                    <div className='lg:col-span-3'>
+                    <div className='md:col-span-3'>
                         <InputLabel htmlFor='name'>Nombre </InputLabel>
                         <TextInput
                             value={data.name}
@@ -92,7 +114,7 @@ const FormContact = () => {
                         />
                         <InputError message={errors.name} className="mt-2" />
                     </div>
-                    <div className='lg:col-span-3'>
+                    <div className='md:col-span-3'>
                         <InputLabel htmlFor='phone'>Telefono </InputLabel>
                         <TextInput
                             value={data.phone}
@@ -103,7 +125,7 @@ const FormContact = () => {
                         />
                         <InputError message={errors.phone} className="mt-2" />
                     </div>
-                    <div className='lg:col-span-3'>
+                    <div className='md:col-span-3'>
                         <InputLabel htmlFor='email'>Email </InputLabel>
                         <TextInput
                             value={data.email}
@@ -114,7 +136,7 @@ const FormContact = () => {
                         />
                         <InputError message={errors.email} className="mt-2" />
                     </div>
-                    <div className='lg:col-span-3'>
+                    <div className='md:col-span-3'>
                         <InputLabel htmlFor='email_confirmation'>Confirmar Email </InputLabel>
                         <TextInput
                             value={data.email_confirmation}
@@ -142,7 +164,7 @@ const FormContact = () => {
 
 
                     {doctors.length > 0 && (
-                        <div className='lg:col-span-3'>
+                        <div className='md:col-span-3'>
                             <InputLabel htmlFor='doctor_id'>Doctores </InputLabel>
                             <select
                                 value={data.doctor_id}
@@ -161,7 +183,7 @@ const FormContact = () => {
                         </div>
                     )}
 
-                    <div className='lg:col-span-6'>
+                    <div className='md:col-span-6'>
                         <InputLabel htmlFor='message'>Mensaje </InputLabel>
                         <textarea
                             value={data.message}
@@ -174,7 +196,7 @@ const FormContact = () => {
                         />
                         <InputError message={errors.message} className="mt-2" />
                     </div>
-                    <div className='lg:col-span-6'>
+                    <div className='md:col-span-6'>
                         <label className="flex">
                             <Checkbox
                                 value={data.subscribed}
@@ -189,14 +211,15 @@ const FormContact = () => {
                         </label>
                         <InputError message={errors.subscribed} className="mt-2" />
                     </div>
-                    <div className='lg:col-span-6 pt-5'>
+                    <div className='md:col-span-6 pt-5'>
                         {succesMessage ? (
-                            <div className=" p-4 text-base bg-green-200 rounded-lg font-medium text-green-700  dark:text-gray-400">
-                                ¡Consulta recibida! Ya te enviamos la información a tu email. Recuerda revisar el correo no deseado o spam.
+                            <div className=" p-4 flex items-center  text-base bg-green-200 rounded-lg font-medium text-green-700  dark:text-gray-400">
+                                <CheckCircleIcon className='w-5 h-5 text-green-600 mr-2' />
+                                ¡Consulta recibida! Ya te enviamos la información a tu email.
                             </div>
                         ) : (
                             <div className='text-right'>
-                                <PrimaryButton className='inline-block' isLoading={processing} disabled={processing}>Enviar Formulario</PrimaryButton>
+                                <PrimaryButton className='md:inline-block w-full md:w-auto' isLoading={processing} disabled={processing}>Enviar Formulario</PrimaryButton>
                             </div>
 
 

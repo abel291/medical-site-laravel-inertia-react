@@ -29,9 +29,10 @@ class DoctorResource extends JsonResource
             'thumb' => $this->thumb,
             'active' => $this->active,
             'meta' => new MetaResource($this->whenLoaded('meta')),
-            'startYear' => $this->startYear,
+            'startYear' => $this->start_date->format('Y'),
             'updateDate' => $this->updated_at->isoFormat('LL'),
             'specialty' => new SpecialtyResource($this->whenLoaded('specialty')),
+            'specialties' => SpecialtyResource::collection($this->whenLoaded('specialties')),
             'surgeries' => SurgeryResource::collection($this->whenLoaded('surgeries')),
 
         ];

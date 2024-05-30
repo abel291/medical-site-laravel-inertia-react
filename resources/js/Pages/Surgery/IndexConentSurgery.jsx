@@ -35,8 +35,8 @@ const IndexConentSurgery = ({ surgery }) => {
                     </button>
                 </li>
                 <li>
-                    <button type='button' onClick={() => handleClickButton('priceSection')}>
-                        Precios
+                    <button type='button' onClick={() => handleClickButton('formContactSection')}>
+                        Consultar
                     </button>
                 </li>
             </ol>

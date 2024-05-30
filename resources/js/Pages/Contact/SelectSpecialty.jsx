@@ -4,7 +4,7 @@ import React from 'react'
 
 const SelectSpecialty = ({ data, errors, handleChangeSpecialty, specialties }) => {
     return (
-        <div className='lg:col-span-3'>
+        <div className='md:col-span-3'>
             <InputLabel htmlFor='specialty_id'>Especialidad </InputLabel>
             <select value={data.specialty_id}
 

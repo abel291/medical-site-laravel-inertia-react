@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Helpers\Helpers;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -25,7 +26,7 @@ class SpecialtyFactory extends Factory
             'entry' => fake()->sentence(15, false),
             'image' => "/img/specialties/specialty-" . rand(1, 4) . ".jpg",
             'thumb' => "/img/specialties/specialty-" . rand(1, 4) . ".jpg",
-            'description' => fake()->text(800),
+            'description' => Helpers::htmlFake(10),
         ];
     }
 }

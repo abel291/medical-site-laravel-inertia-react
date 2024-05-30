@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AppointmentFormRequest;
 use App\Http\Resources\DoctorResource;
+use App\Http\Resources\PostResource;
 use App\Http\Resources\SpecialtyResource;
 use App\Http\Resources\SurgeryResource;
 use App\Models\Appointment;
@@ -21,14 +22,16 @@ class PageController extends Controller
 {
     public function home()
     {
+        $page = Page::select('title', 'entry')->where('type', 'home')->first();
         $specialties = Specialty::select('id', 'slug', 'name', 'entry', 'thumb')->take(5)->get();
         $posts = Post::take(2)->get();
         $doctors = Doctor::has('specialty')->with('specialty')->take(4)->get();
 
         // dd($doctors->last()->specialty);
         return Inertia::render('Home/Home', [
-            'specialties' => $specialties,
-            'posts' => $posts,
+            'specialties' => PostResource::collection($specialties),
+            'posts' => PostResource::collection($posts),
+            'page' => $page,
             'doctors' => DoctorResource::collection($doctors)
         ]);
     }
@@ -48,8 +51,9 @@ class PageController extends Controller
     public function specialties()
     {
         $page = Page::select('title', 'entry')->where('type', 'specialties')->first();
-        $specialties = Specialty::with('surgeries')->get();
-        $doctors = Doctor::has('specialty')->with('specialty')->take(4)->inRandomOrder()->get();
+        $specialties = Specialty::select('id', 'name', 'slug', 'thumb', 'entry')->with('surgeries:id,name,slug,specialty_id')->get();
+
+        $doctors = Doctor::select('id', 'name', 'entry', 'slug', 'thumb', 'specialty_id')->has('specialty')->with('specialty:id,name,slug')->take(4)->inRandomOrder()->get();
         // dd($specialties);
         return Inertia::render('Specialties/Specialties', [
             'page' => $page,
@@ -69,7 +73,7 @@ class PageController extends Controller
     }
     public function surgery($slug)
     {
-        $surgery = Surgery::with('specialty', 'meta', 'images')->with('doctors')->where('slug', $slug)->firstOrFail();
+        $surgery = Surgery::with('specialty:id,name,slug,updated_at', 'meta', 'images')->with('doctors')->where('slug', $slug)->firstOrFail();
         $relatedSurgeries = Surgery::where('specialty_id',  $surgery->specialty_id)->whereNot('id', $surgery->id)->get();
 
         return Inertia::render('Surgery/Surgery', [
@@ -84,36 +88,38 @@ class PageController extends Controller
             'doctor' => new DoctorResource($doctor),
         ]);
     }
+    public function doctors()
+    {
+        $page = Page::select('title', 'entry')->where('type', 'doctors')->first();
+        $doctors = Doctor::select('id', 'name', 'slug', 'thumb', 'entry', 'updated_at', 'start_date')->with('meta', 'specialties:id,name,slug')->get();
+        // dd($doctors->first());
+        return Inertia::render('Doctors/Doctors', [
+            'doctors' => DoctorResource::collection($doctors),
+            'page' => $page
+        ]);
+    }
     public function contact()
     {
         $page = Page::select('title', 'entry')->where('type', 'contact')->first();
-        $doctors = Doctor::has('specialty')->with('specialty')->inRandomOrder()->get();
+
 
         $email = fake()->email();
-        $specialty = Specialty::select('id')->with('surgeries')->inRandomOrder()->first();
-        $formFake = [
-            'name' => fake()->name(),
-            'phone' => fake()->phoneNumber(),
-            'email' => $email,
-            'email_confirmation' => $email,
-            'message' => fake()->paragraph(),
-            'specialty_id' => $specialty->id,
-            // 'surgery_id' => $specialty->surgeries->random()->id,
-        ];
 
         // dd($formFake);
         return Inertia::render('Contact/Contact', [
             'page' => $page,
-            'doctors' => $doctors,
-            'formFake' => $formFake,
+            // 'doctors' => $doctors,
 
         ]);
     }
 
     public function formContact(AppointmentFormRequest $request)
     {
-        // dd($request->all());
-        Appointment::create($request->validated());
+
+        Appointment::create([
+            ...$request->validated(),
+            'path_origin' => "/" . url()->previous()
+        ]);
 
         return redirect()->back();
     }

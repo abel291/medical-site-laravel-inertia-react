@@ -10,13 +10,13 @@ const ButtonReserve = () => {
     const [open, setOpen] = useState(false)
     return (
         <div >
-            <PrimaryButton onClick={(() => setOpen(true))}>
+            <button className='h-12 px-5 bg-primary-600 hover:opacity-95 hover:bg-primary-700' onClick={(() => setOpen(true))}>
                 <div className='flex items-center'>
                     <CalendarDaysIcon className=' mr-1 w-6 h-6' />
                     <span>Hacer consulta</span>
                 </div>
 
-            </PrimaryButton>
+            </button>
 
             <div>
                 <Transition.Root show={open} as={Fragment}>

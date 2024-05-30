@@ -1,18 +1,26 @@
-import React from 'react'
+import React from "react";
 
 const CardTestimonial = ({ testimonial }) => {
     return (
-        <div className='bg-white rounded-lg p-10 border'>
-            <div className='flex gap-3 items-center'>
-                <img className='w-14 h-14 object-cover object-center rounded-full' src="/img/doctors/doctor-1.jpg" alt="" />
+        <div className="rounded-lg border bg-white p-10">
+            <div className="flex items-center gap-3">
+                <img
+                    className="h-14 w-14 rounded-full object-cover object-center"
+                    src={testimonial.img}
+                    alt=""
+                />
                 <div>
-                    <h3 className='font-semibold text-xl'>{testimonial.name}</h3>
-                    <span className='text-gray-500 mt-4 text-lg'>{testimonial.job}</span>
+                    <h3 className="text-xl font-semibold">
+                        {testimonial.name}
+                    </h3>
+                    <span className="mt-4 text-lg text-gray-500">
+                        {testimonial.job}
+                    </span>
                 </div>
             </div>
-            <p className='text-gray-500 text-lg mt-6'>{testimonial.text}</p>
+            <p className="mt-6 text-lg text-gray-500">{testimonial.text}</p>
         </div>
-    )
-}
+    );
+};
 
-export default CardTestimonial
+export default CardTestimonial;

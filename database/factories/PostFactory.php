@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Helpers\Helpers;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,10 +20,10 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'entry' => fake()->sentence(20, false),
-            'description' => fake()->text(2000),
+            'description' => Helpers::htmlFake(18),
             'slug' => fake()->slug(),
-            'image' => '/img/img-1.jpg',
-            'thumb' => '/img/img-1.jpg',
+            'image' => "/img/posts/post-" . rand(1, 7) . ".jpg",
+            'thumb' => "/img/posts/post-" . rand(1, 7) . ".jpg",
         ];
     }
 }

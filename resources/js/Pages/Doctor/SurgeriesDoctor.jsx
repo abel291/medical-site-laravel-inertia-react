@@ -9,7 +9,7 @@ const SurgeriesDoctor = ({ doctor }) => {
             <TitleSection title="Mis servicios" subTitle='SERVICIO' />
             <ol className='grid md:grid-cols-2 mt-8 font-medium gap-3'>
                 {doctor.surgeries.map((surgery) => (
-                    <li className='flex item-center'>
+                    <li key={surgery.id} className='flex item-center'>
                         <CheckCircleIcon className='text-primary w-5 h-5 mr-2 mt-1 ' />
                         <Link className='text-primary' href={route('surgery', surgery.slug)}>
                             {surgery.name}

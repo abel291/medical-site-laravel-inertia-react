@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Helpers\Helpers;
 use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -26,7 +27,7 @@ class DoctorFactory extends Factory
             'phone2' => fake()->phoneNumber(),
             'address' => fake()->address(),
             'entry' => fake()->sentence(40, false),
-            'description' => fake()->text(700),
+            'description' => Helpers::htmlFake(),
             'image' => '/img/doctors/doctor-1.jpg',
             'thumb' => '/img/doctors/doctor-1.jpg',
             'start_date' => fake()->dateTimeBetween('-30 year', '-1 year'),
