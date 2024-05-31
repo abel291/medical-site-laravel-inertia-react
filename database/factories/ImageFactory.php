@@ -20,6 +20,7 @@ class ImageFactory extends Factory
             "img" => "/img/image-" . rand(1, 3) . ".jpg",
             "thumb" => "/img/image-" . rand(1, 3) . ".jpg",
             "alt" => fake()->sentence(),
+            "sort" => rand(1, 20),
             "title" => fake()->sentence(),
 
         ];

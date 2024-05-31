@@ -22,7 +22,7 @@ class DoctorSeeder extends Seeder
         Doctor::truncate();
         for ($i = 0; $i < 13; $i++) { // exist 13 images
             Doctor::factory()
-                ->has(Image::factory()->count(2))
+                ->has(Image::factory()->count(5))
                 ->has(Meta::factory())
                 ->create([
                     "image" => "/img/doctors/doctor-" . ($i + 1) . ".jpg",
@@ -45,9 +45,9 @@ class DoctorSeeder extends Seeder
             });
         });
 
-        foreach (Doctor::with('specialties')->get() as $key => $doctor) {
+        foreach (Doctor::with('specialties')->get() as  $doctor) {
 
-            if ($doctor->specialties->isEmpty()) {
+            if (!$doctor->specialties->count()) {
 
                 $specialtiesSelected = $specialties->random();
                 $doctor->specialties()->sync($specialtiesSelected);

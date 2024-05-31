@@ -12,7 +12,7 @@ const CardSpecialty = ({ specialty }) => {
         <div className="flex flex-col overflow-hidden rounded-xl  border bg-white">
             <img
                 src={specialty.thumb}
-                className="object-cover object-center"
+                className="aspect-video object-cover object-center"
                 alt=""
             />
 
@@ -21,7 +21,7 @@ const CardSpecialty = ({ specialty }) => {
                     href={route("specialty", specialty.slug)}
                     className="flex items-center"
                 >
-                    <h3 className="text-2xl font-semibold text-primary-700">
+                    <h3 className="text-xl font-semibold text-primary-700">
                         {specialty.name}
                     </h3>
                 </Link>

@@ -54,11 +54,7 @@ const NavbarDesktop = ({ navigations }) => {
                             <LinkNavbar key={index} navigation={navigation} />
                         ))}
 
-                        {auth.user && (
-                            <div>
-                                <ProfileDropdown />
-                            </div>
-                        )}
+                        {auth.user && <div>{/* <ProfileDropdown /> */}</div>}
                     </div>
                 </div>
             </div>
