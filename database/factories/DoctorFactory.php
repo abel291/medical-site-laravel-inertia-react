@@ -25,7 +25,7 @@ class DoctorFactory extends Factory
             'email2' => fake()->email(),
             'phone' => fake()->phoneNumber(),
             'phone2' => fake()->phoneNumber(),
-            'address' => fake()->address(),
+            // 'address' => fake()->address(),
             'entry' => fake()->sentence(40, false),
             'description' => Helpers::htmlFake(),
             'image' => '/img/doctors/doctor-1.jpg',

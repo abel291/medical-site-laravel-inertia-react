@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
 use App\Models\Doctor;
 use App\Models\Image;
 use App\Models\Meta;
 use App\Models\Specialty;
 use App\Models\Surgery;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,9 +22,11 @@ class DoctorSeeder extends Seeder
     public function run(): void
     {
         Doctor::truncate();
+        Address::truncate();
         for ($i = 0; $i < 13; $i++) { // exist 13 images
             Doctor::factory()
                 ->has(Image::factory()->count(5))
+                ->has(Address::factory()->count(4))
                 ->has(Meta::factory())
                 ->create([
                     "image" => "/img/doctors/doctor-" . ($i + 1) . ".jpg",

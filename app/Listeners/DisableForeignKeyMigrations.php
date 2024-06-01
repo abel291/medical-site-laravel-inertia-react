@@ -24,6 +24,6 @@ class DisableForeignKeyMigrations
      */
     public function handle(MigrationsStarted $event)
     {
-        Schema::disableForeignKeyConstraints();
+        // Schema::disableForeignKeyConstraints();
     }
 }

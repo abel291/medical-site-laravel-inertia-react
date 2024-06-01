@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('email2');
             $table->string('phone');
             $table->string('phone2');
-            $table->text('entry');
+            $table->string('entry');
             $table->text('description')->nullable();;
-            $table->string('address')->nullable();
+            // $table->string('address')->nullable();
             $table->string('image');
             $table->string('thumb');
             $table->boolean('active')->default(1);

@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class SpecialtyResource extends Resource
 {
     protected static ?string $model = Specialty::class;
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static ?string $label = 'Especialidad';
     protected static ?string $pluralModelLabel  = 'Especialidades';
@@ -44,28 +45,59 @@ class SpecialtyResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required()->maxLength(255)->label('Titulo'),
-                Forms\Components\TextInput::make('slug')->required()->maxLength(255)->label('Url')
-                    ->prefix(url('/specialty') . '/')
-                    ->suffix('.com'),
-                Forms\Components\Textarea::make('entry')->required()->maxLength(255)->columnSpan(2)->label('Pequeña descripcion'),
-                Forms\Components\FileUpload::make('image')->directory('/img/specialties')->image()->maxSize(1024)->label('Imagen'),
-                Forms\Components\FileUpload::make('thumb')->directory('/img/specialties')->image()->maxSize(1024)->label('Imagen'),
-                Forms\Components\Toggle::make('active')->inline(false)->label('Activo'),
-                Forms\Components\RichEditor::make('description')->disableToolbarButtons([
-                    'attachFiles',
-                    'strike',
-                ])->columnSpan(2)->label('Descripcion amplia'),
-                Forms\Components\Fieldset::make('Metadata')
-                    ->relationship('meta')
+                Forms\Components\Section::make()
                     ->schema([
-                        Forms\Components\TextInput::make('title')->label('titulo'),
-                        Forms\Components\Textarea::make('desc')->label('descripcion'),
-                        Forms\Components\Textarea::make('extra')->label('Extra metadata')->columnSpan(2),
+                        Forms\Components\TextInput::make('name')->required()->maxLength(255)->label('Titulo')->columnSpan(4),
+                        Forms\Components\TextInput::make('slug')->required()->maxLength(255)->label('Url')->columnSpan(4)
+                            ->prefix(url('/specialty') . '/')
+                            ->suffix('.com'),
+                        Forms\Components\Textarea::make('entry')->required()->maxLength(255)->columnSpanFull()->label('Pequeña descripcion'),
+                        Forms\Components\FileUpload::make('image')->directory('/img/specialties')
+                            ->image()
+                            ->maxSize(1024)
+                            ->label('Imagen')
+                            ->columnSpan(3),
+                        Forms\Components\FileUpload::make('thumb')
+                            ->directory('/img/specialties')
+                            ->image()
+                            ->maxSize(1024)
+                            ->label('Imagen')
+                            ->columnSpan(3),
+                        Forms\Components\Toggle::make('active')->inline(false)->label('Activo'),
+                        Forms\Components\RichEditor::make('description')->disableToolbarButtons([
+                            'attachFiles',
+                            'strike',
+                        ])->columnSpanFull()->label('Descripcion amplia'),
+                        Forms\Components\Fieldset::make('Metadata')
+                            ->relationship('meta')
+                            ->schema([
+                                Forms\Components\TextInput::make('title')->label('titulo'),
+                                Forms\Components\Textarea::make('desc')->label('descripcion'),
+                                Forms\Components\Textarea::make('extra')->label('Extra metadata')->columnSpan(2),
 
+                            ])
                     ])
+                    ->columns(6)
+                    ->columnSpan(['lg' => fn (?Specialty $record) => $record === null ? 3 : 2]),
 
-            ]);
+
+                Forms\Components\Section::make()
+                    ->schema([
+                        Forms\Components\Placeholder::make('created_at')
+                            ->label('Creado')
+                            ->content(fn (Specialty $record): ?string => $record->created_at?->diffForHumans()),
+
+                        Forms\Components\Placeholder::make('updated_at')
+                            ->label('Ultima modificacion')
+                            ->content(fn (Specialty $record): ?string => $record->updated_at?->diffForHumans()),
+                        Forms\Components\Placeholder::make('surgeries')
+                            ->label('Cirugias')
+                            ->content(fn (Specialty $record): ?string => $record->surgeries->count()),
+                    ])
+                    ->columnSpan(['lg' => 1])
+                    ->hidden(fn (?Specialty $record) => $record === null),
+            ])
+            ->columns(3);
     }
 
     public static function table(Table $table): Table
@@ -119,6 +151,7 @@ class SpecialtyResource extends Resource
     {
         return [
             ImageResource\RelationManagers\ImagesRelationManager::class,
+            SurgeriesRelationManager::class,
         ];
     }
 
