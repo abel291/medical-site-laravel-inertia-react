@@ -22,6 +22,7 @@ class PostFactory extends Factory
             'entry' => fake()->sentence(20, false),
             'description' => Helpers::htmlFake(18),
             'slug' => fake()->slug(),
+            'published_at' => $this->faker->dateTimeBetween('-6 month', '+1 month'),
             'image' => "/img/posts/post-" . rand(1, 7) . ".jpg",
             'thumb' => "/img/posts/post-" . rand(1, 7) . ".jpg",
         ];

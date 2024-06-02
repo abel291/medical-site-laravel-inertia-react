@@ -20,6 +20,9 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->string('image');
             $table->string('thumb');
+            $table->date('published_at');
+            $table->foreignId('author_id')->constrained()->cascadeOnDelete();
+
             $table->timestamps();
         });
 
@@ -35,6 +38,17 @@ return new class extends Migration
             $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
         });
+
+        Schema::create('authors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('photo')->nullable();
+            $table->longText('bio')->nullable();
+            $table->string('github_handle')->nullable();
+            $table->string('twitter_handle')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -45,5 +59,6 @@ return new class extends Migration
         Schema::dropIfExists('posts');
         Schema::dropIfExists('tags');
         Schema::dropIfExists('post_tag');
+        Schema::dropIfExists('authors');
     }
 };

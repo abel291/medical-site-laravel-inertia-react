@@ -16,7 +16,7 @@ class Doctor extends Model
     use HasFactory;
 
     protected $casts = [
-        'start_date' => 'datetime',
+        'published_date' => 'datetime',
     ];
     protected function startYear(): Attribute
     {
