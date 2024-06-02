@@ -26,12 +26,10 @@ class DoctorResource extends Resource
     protected static ?string $model = Doctor::class;
     protected static ?string $navigationIcon = 'heroicon-O-user-group';
     public static ?string $label = 'Doctor';
+    protected static ?string $navigationGroup  = 'Dashboard';
     protected static ?string $pluralModelLabel  = 'Doctores';
     protected static ?string $recordTitleAttribute = 'name';
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
+
 
     public static function form(Form $form): Form
     {
