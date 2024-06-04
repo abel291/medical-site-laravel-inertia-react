@@ -34,7 +34,7 @@ class SurgeryResource extends Resource
     protected static ?string $pluralModelLabel  = 'Cirugias';
 
     protected static ?string $recordTitleAttribute = 'name';
-
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

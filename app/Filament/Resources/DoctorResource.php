@@ -29,7 +29,7 @@ class DoctorResource extends Resource
     protected static ?string $navigationGroup  = 'Dashboard';
     protected static ?string $pluralModelLabel  = 'Doctores';
     protected static ?string $recordTitleAttribute = 'name';
-
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

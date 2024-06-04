@@ -23,7 +23,7 @@ class AppointmentResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
     public static ?string $label = 'Consulta';
     protected static ?string $pluralModelLabel  = 'Consultas';
-
+    protected static ?int $navigationSort = 5;
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

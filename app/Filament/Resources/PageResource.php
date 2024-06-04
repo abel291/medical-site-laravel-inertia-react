@@ -23,7 +23,7 @@ class PageResource extends Resource
 
     protected static ?string $navigationGroup  = 'Dashboard';
     protected static ?string $recordTitleAttribute = 'name';
-
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
@@ -51,13 +51,13 @@ class PageResource extends Resource
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('title')
                     ->description(fn (Page $record): string => $record->entry),
-                \Filament\Tables\Columns\TextColumn::make('type')->badge()
+                \Filament\Tables\Columns\TextColumn::make('type')->badge()->color('info')
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->icon(null),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
@@ -78,7 +78,7 @@ class PageResource extends Resource
         return [
             'index' => Pages\ListPages::route('/'),
             'create' => Pages\CreatePage::route('/create'),
-            'edit' => Pages\EditPage::route('/{record}/edit'),
+            // 'edit' => Pages\EditPage::route('/{record}/edit'),
         ];
     }
 }
