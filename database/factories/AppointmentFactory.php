@@ -17,7 +17,14 @@ class AppointmentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'phone' => fake()->phoneNumber,
+            'email' => fake()->email,
+            'message' => fake()->sentence(20),
+            'type' => fake()->randomElement(['form', 'modal']),
+            'subscribed' => rand(1, 0),
+            'page' => 'home',
+            'created_at' => $this->faker->dateTimeBetween('-6 month', 'now'),
         ];
     }
 }

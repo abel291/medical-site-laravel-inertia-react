@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('thumb');
             $table->date('published_at');
-            $table->foreignId('author_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('author_id')->nullable()->constrained()->nullOnDelete();
 
             $table->timestamps();
         });

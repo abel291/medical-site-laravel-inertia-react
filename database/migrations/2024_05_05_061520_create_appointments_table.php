@@ -20,7 +20,7 @@ return new class extends Migration
             $table->json('extra_data')->nullable();
             $table->string('type'); //modal - form
             $table->boolean('subscribed')->default(false);
-            $table->string('path_origin');
+            $table->string('page');
             $table->nullableMorphs('model');
             $table->foreignId('specialty_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('surgery_id')->nullable()->constrained()->nullOnDelete();
