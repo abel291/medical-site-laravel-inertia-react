@@ -1,26 +1,33 @@
-import PrimaryButton from '@/Components/PrimaryButton'
-import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/16/solid'
-import React, { Fragment, useState } from 'react'
-import FormReserve from './FormReserve'
-import { CalendarDaysIcon } from '@heroicons/react/24/solid'
-
+import PrimaryButton from "@/Components/PrimaryButton";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/16/solid";
+import React, { Fragment, useState } from "react";
+import FormReserve from "./FormReserve";
+import { CalendarDaysIcon } from "@heroicons/react/24/solid";
+import FormContact from "@/Pages/Contact/FormContact";
+import FormContactSidebar from "./FormContactSidebar";
 
 const ButtonReserve = () => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
     return (
-        <div >
-            <button className='h-12 px-5 bg-primary-600 hover:opacity-95 hover:bg-primary-700' onClick={(() => setOpen(true))}>
-                <div className='flex items-center'>
-                    <CalendarDaysIcon className=' mr-1 w-6 h-6' />
+        <div>
+            <button
+                className="h-12 bg-primary-600 px-5 hover:bg-primary-700 hover:opacity-95"
+                onClick={() => setOpen(true)}
+            >
+                <div className="flex items-center">
+                    <CalendarDaysIcon className=" mr-1 h-6 w-6" />
                     <span>Hacer consulta</span>
                 </div>
-
             </button>
 
             <div>
                 <Transition.Root show={open} as={Fragment}>
-                    <Dialog as="div" className="relative z-50" onClose={setOpen}>
+                    <Dialog
+                        as="div"
+                        className="relative z-50"
+                        onClose={setOpen}
+                    >
                         <Transition.Child
                             as={Fragment}
                             enter="ease-in-out duration-500"
@@ -59,11 +66,18 @@ const ButtonReserve = () => {
                                                     <button
                                                         type="button"
                                                         className="relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                                                        onClick={() => setOpen(false)}
+                                                        onClick={() =>
+                                                            setOpen(false)
+                                                        }
                                                     >
                                                         <span className="absolute -inset-2.5" />
-                                                        <span className="sr-only">Close panel</span>
-                                                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                                        <span className="sr-only">
+                                                            Close panel
+                                                        </span>
+                                                        <XMarkIcon
+                                                            className="h-6 w-6"
+                                                            aria-hidden="true"
+                                                        />
                                                     </button>
                                                 </div>
                                             </Transition.Child>
@@ -74,7 +88,7 @@ const ButtonReserve = () => {
                                                     </Dialog.Title>
                                                 </div>
                                                 <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                                                    <FormReserve />
+                                                    <FormContactSidebar />
                                                 </div>
                                             </div>
                                         </Dialog.Panel>
@@ -85,11 +99,8 @@ const ButtonReserve = () => {
                     </Dialog>
                 </Transition.Root>
             </div>
-
         </div>
+    );
+};
 
-
-    )
-}
-
-export default ButtonReserve
+export default ButtonReserve;

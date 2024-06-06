@@ -116,10 +116,7 @@ class PageController extends Controller
     public function formContact(AppointmentFormRequest $request)
     {
 
-        Appointment::create([
-            ...$request->validated(),
-            'path_origin' => "/" . url()->previous()
-        ]);
+        Appointment::create($request->validated());
 
         return redirect()->back();
     }
