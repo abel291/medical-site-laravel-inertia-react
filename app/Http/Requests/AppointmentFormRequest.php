@@ -30,6 +30,7 @@ class AppointmentFormRequest extends FormRequest
             'surgery_id' => ($this->input('surgery_id') != null) ? 'exists:surgeries,id' : '',
             'type' => 'required|in:form,modal',
             'subscribed' => 'required|boolean',
+            'page' => 'required|max:255|string',
         ];
     }
     protected function prepareForValidation(): void
