@@ -10,7 +10,7 @@ import React, { useState } from "react";
 const FormContactSidebar = () => {
     const [succesMessage, setSuccesMessage] = useState(false);
     const { errors } = usePage().props;
-    console.log(window.location.href);
+
     const { data, setData, post, processing } = useForm({
         name: "",
         phone: "",
