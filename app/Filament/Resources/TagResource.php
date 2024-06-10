@@ -65,7 +65,7 @@ class TagResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->icon(null),
+                Tables\Actions\EditAction::make()->icon(null)->color('info'),
                 Tables\Actions\DeleteAction::make()->icon(null),
             ])
             ->bulkActions([

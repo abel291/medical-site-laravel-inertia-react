@@ -141,7 +141,7 @@ class PostResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()->icon(null),
+                Tables\Actions\ViewAction::make()->icon(null)->label('Ver'),
                 Tables\Actions\EditAction::make()->icon(null)->color('info'),
                 Tables\Actions\DeleteAction::make()->icon(null),
             ])

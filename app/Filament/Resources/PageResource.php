@@ -57,7 +57,7 @@ class PageResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->icon(null),
+                Tables\Actions\EditAction::make()->color('info')->icon(null),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([

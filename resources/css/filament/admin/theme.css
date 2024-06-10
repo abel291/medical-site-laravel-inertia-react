@@ -8,3 +8,7 @@
 .fi-ta-ctn {
     @apply rounded-md;
 }
+.fi-ta-text,
+.fi-ta-image {
+    @apply py-2.5;
+}

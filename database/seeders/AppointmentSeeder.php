@@ -16,7 +16,7 @@ class AppointmentSeeder extends Seeder
     {
         $specialties = Specialty::select('id')->with('surgeries:id,specialty_id')->get();
         Appointment::truncate();
-        Appointment::factory(rand(5000, 10000))
+        Appointment::factory(rand(5000, 8000))
             ->state(function (array $attributes) use ($specialties) {
                 $specialty = fake()->randomElement([$specialties->random(), null]);
                 return [

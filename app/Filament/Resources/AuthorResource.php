@@ -8,6 +8,7 @@ use App\Models\Author;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -56,45 +57,30 @@ class AuthorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\Layout\Split::make([
-                    Tables\Columns\Layout\Stack::make([
-                        Tables\Columns\TextColumn::make('name')
-                            ->searchable()
-                            ->sortable()
-                            ->weight('medium')
-                            ->alignLeft(),
+                Tables\Columns\TextColumn::make('name')
+                    ->color('primary')
+                    ->weight(FontWeight::Medium)
+                    ->description(fn (Author $record): string => $record->email)->label('Nombre Email'),
 
-                        Tables\Columns\TextColumn::make('email')
-                            ->label('Email address')
-                            ->searchable()
-                            ->sortable()
-                            ->color('gray')
-                            ->alignLeft(),
-                    ])->space(),
+                Tables\Columns\TextColumn::make('github_handle')
+                    ->icon('icon-github')
+                    ->label('GitHub'),
 
-                    Tables\Columns\Layout\Stack::make([
-                        Tables\Columns\TextColumn::make('github_handle')
-                            ->icon('icon-github')
-                            ->label('GitHub')
-                            ->alignLeft(),
+                Tables\Columns\TextColumn::make('twitter_handle')
+                    ->icon('icon-twitter')
+                    ->label('Twitter'),
 
-                        Tables\Columns\TextColumn::make('twitter_handle')
-                            ->icon('icon-twitter')
-                            ->label('Twitter')
-                            ->alignLeft(),
-                    ])->space(2),
-                ])->from('md'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->icon(null),
+                Tables\Actions\EditAction::make()->icon(null)->color('info'),
                 Tables\Actions\DeleteAction::make()->icon(null),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }

@@ -24,7 +24,7 @@ class AppointmentFactory extends Factory
             'type' => fake()->randomElement(['form', 'modal']),
             'subscribed' => rand(1, 0),
             'page' => 'home',
-            'created_at' => $this->faker->dateTimeBetween('-6 month', 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-12 month', 'now'),
         ];
     }
 }
