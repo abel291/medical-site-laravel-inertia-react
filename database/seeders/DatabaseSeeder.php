@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             PageSeeder::class,
             AppointmentSeeder::class,
+            SubscriptionSeeder::class,
         ]);
         Schema::enableForeignKeyConstraints();
     }
