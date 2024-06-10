@@ -17,13 +17,8 @@
 ![screenshot-1](/public/screenshot/screenshot-8.png)
 
 ![screenshot-1](/public/screenshot/screenshot-9.png)
+-->
 
 Screenshot Dashboard
 
 ![screenshot-1](/public/screenshot/screenshot-dashboard-1.png)
-
-![screenshot-2](/public/screenshot/screenshot-dashboard-2.png)
-
-![screenshot-3](/public/screenshot/screenshot-dashboard-3.png)
-
-![screenshot-4](/public/screenshot/screenshot-dashboard-4.png) -->
