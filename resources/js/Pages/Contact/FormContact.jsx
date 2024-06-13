@@ -13,7 +13,7 @@ import Checkbox from "@/Components/Checkbox";
 import { CheckCircleIcon } from "@heroicons/react/16/solid";
 
 const FormContact = ({ specialty_id = "", surgery_id = "" }) => {
-    const { errors } = usePage().props;
+    const { errors, specialties } = usePage().props;
 
     const [surgeries, setSurgeries] = useState([]);
     const [doctors, setDoctors] = useState([]);
