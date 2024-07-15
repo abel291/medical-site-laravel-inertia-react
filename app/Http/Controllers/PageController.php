@@ -43,8 +43,8 @@ class PageController extends Controller
         // dd($page);
         return Inertia::render('AboutUs/AboutUs', [
             'page' => $page,
-            'doctor' => $doctor,
-            'doctors' => $doctors,
+            'doctor' => new DoctorResource($doctor),
+            'doctors' => DoctorResource::collection($doctors)
 
         ]);
     }

@@ -21,7 +21,7 @@ class PageSeeder extends Seeder
             ],
             [
                 'title' => 'Incio',
-                'type' => 'Home',
+                'type' => 'home',
             ],
             [
                 'title' => 'Especialidades',
@@ -41,8 +41,13 @@ class PageSeeder extends Seeder
             ],
         ];
 
-        foreach ($pages as $page) {
-            Page::factory()->create($page);
-        }
+        $newPages = array_map(function ($page) {
+            return [
+                ...Page::factory()->make($page)->toArray(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }, $pages);
+        Page::insert($newPages);
     }
 }

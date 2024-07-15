@@ -14,7 +14,7 @@ const FormNewsletter = () => {
     const { data, setData, processing, post, errors, clearErrors } = useForm({
         email: "user@user.com",
     });
-    console.log(data.email);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         clearErrors();

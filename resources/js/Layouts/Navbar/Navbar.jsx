@@ -15,12 +15,12 @@ import {
 
 const Navbar = () => {
     const navigations = [
-        {
-            title: "Inicio",
-            routeName: "home",
-            routeActive: "home",
-            icon: HomeIcon,
-        },
+        // {
+        //     title: "Inicio",
+        //     routeName: "home",
+        //     routeActive: "home",
+        //     icon: HomeIcon,
+        // },
         {
             title: "Nostros",
             routeName: "about",

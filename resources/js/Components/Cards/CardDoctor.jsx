@@ -16,29 +16,29 @@ const CardDoctor = ({ doctor }) => {
                     />
                 </Link>
             </div>
-            <div className="mt-3">
+            <div className="mt-2">
                 {doctor.specialty && (
                     <Link
                         href={route("specialty", doctor.specialty.slug)}
-                        className="text-primary mt-3 block font-medium "
+                        className="text-primary mt- block text-sm font-medium"
                     >
                         {doctor.specialty.name}
                     </Link>
                 )}
                 <Link href={route("doctor", doctor.slug)}>
-                    <h3 className="text-2xl font-semibold ">{doctor.name}</h3>
+                    <h3 className="text-xl font-semibold ">{doctor.name}</h3>
                 </Link>
 
                 {doctor.specialties && (
-                    <div className="mt-2 ">
-                        <span className=" text-primary font-medium">
+                    <div className="mt-1  ">
+                        <span className=" text-primary text-sm font-semibold">
                             Especialista en:
                         </span>
                         <div className="flex flex-wrap gap-x-3 ">
                             {doctor.specialties.map((specialty) => (
                                 <Link
                                     href={route("specialty", specialty.slug)}
-                                    className=" hover:text-primary-700"
+                                    className=" text-base font-medium hover:text-primary-700"
                                 >
                                     {specialty.name}
                                 </Link>
@@ -46,7 +46,7 @@ const CardDoctor = ({ doctor }) => {
                         </div>
                     </div>
                 )}
-                <span className="mt-2 inline-block text-base font-light text-neutral-400">
+                <span className="inline-block text-sm  text-neutral-400">
                     Trabajando desde {doctor.startYear}
                 </span>
             </div>
