@@ -6,7 +6,7 @@ import LinkArrowIcon from "../LinkArrowIcon";
 
 const CardPost = ({ post }) => {
     return (
-        <div className="flex max-w-md flex-col overflow-hidden  ">
+        <div className="flex max-w-md flex-col">
             <img
                 src={post.thumb}
                 className="aspect-video w-full transform rounded-lg object-cover "
@@ -14,14 +14,14 @@ const CardPost = ({ post }) => {
             />
             <div className="flex grow flex-col  justify-between  pb-4  pt-5">
                 <div>
-                    <span className="mb-2 block text-base opacity-65">
+                    <span className="mb-2 block text-sm opacity-65">
                         {post.updateDate}
                     </span>
                     <Link
                         href={route("post", post.slug)}
                         className="group flex items-center text-primary-700"
                     >
-                        <h3 className="text-xl font-semibold text-primary-700 lg:text-2xl">
+                        <h3 className="text-xl font-semibold text-primary-700">
                             {post.title}
                         </h3>
                         <ArrowLongRightIcon className="ml-2 h-6 w-7 transition-transform ease-in-out group-hover:translate-x-4" />

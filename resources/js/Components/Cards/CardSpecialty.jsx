@@ -16,12 +16,12 @@ const CardSpecialty = ({ specialty }) => {
                 alt=""
             />
 
-            <div className="flex h-full flex-col px-8 pb-6 pt-8  text-lg">
+            <div className="flex h-full flex-col px-8 pb-6 pt-6  ">
                 <Link
                     href={route("specialty", specialty.slug)}
                     className="flex items-center"
                 >
-                    <h3 className="text-xl font-semibold text-primary-700">
+                    <h3 className="text-lg font-semibold text-primary-600">
                         {specialty.name}
                     </h3>
                 </Link>
