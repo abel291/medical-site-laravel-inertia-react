@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\AddressResource\RelationManagers\AdresssesRelationManager;
 use App\Filament\Resources\DoctorResource\Pages;
 use App\Filament\Resources\DoctorResource\RelationManagers;
-use App\Filament\Resources\SurgeryResource\RelationManagers\SurgeriesRelationManager;
+// use App\Filament\Resources\SurgeryResource\RelationManagers\SurgeriesRelationManager;
 use App\Models\Doctor;
 use App\Models\Specialty;
 use App\Models\Surgery;
@@ -191,12 +191,12 @@ class DoctorResource extends Resource
                     ->openUrlInNewTab()
                     ->label('Nombre')
                     ->sortable()
-                    ->searchable(isIndividual: true),
+                    ->searchable(),
                 // ->description(fn (Doctor $record): string => $record->slug)->label('Nombre')->wrap(),
 
                 TextColumn::make('email')
                     ->description(fn (Doctor $record): string => $record->email2)->label('Email')
-                    ->searchable(isIndividual: true)
+                    ->searchable()
                     ->sortable(),
 
                 TextColumn::make('phone')
@@ -224,7 +224,7 @@ class DoctorResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])->defaultSort('id', 'desc');
     }
@@ -232,7 +232,7 @@ class DoctorResource extends Resource
     public static function getRelations(): array
     {
         return [
-            SurgeriesRelationManager::class,
+            // SurgeriesRelationManager::class,
             ImageResource\RelationManagers\ImagesRelationManager::class,
             AdresssesRelationManager::class,
 
