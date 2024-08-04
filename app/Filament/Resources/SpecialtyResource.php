@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\ImageResource\RelationManagers\ImagesRelationManager;
 use App\Filament\Resources\SpecialtyResource\Pages;
 use App\Filament\Resources\SpecialtyResource\RelationManagers;
-use App\Filament\Resources\SurgeryResource\RelationManagers\SurgeriesRelationManager;
+use App\Filament\Resources\SpecialtyResource\RelationManagers\SurgeriesRelationManager;
 use App\Models\Specialty;
 use App\Models\Surgery;
 use Filament\Forms;
@@ -37,17 +38,51 @@ class SpecialtyResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-star';
 
     protected static ?int $navigationSort = 1;
+
+    public static function formPlaceholderDate()
+    {
+        return Forms\Components\Section::make()
+            ->columnSpan(1)
+            ->schema([
+                Forms\Components\Placeholder::make('created_at')
+                    ->label('Fecha de creacion')
+                    ->content(
+                        fn ($record): ?string =>
+                        $record->created_at->translatedFormat('M j, Y h:i a') . ' (' . $record->created_at?->diffForHumans() . ')'
+                    ),
+
+                Forms\Components\Placeholder::make('updated_at')
+                    ->label('Ultima modificacion')
+                    ->content(
+                        fn ($record): ?string =>
+                        $record->created_at->translatedFormat('M j, Y h:i a') . ' (' . $record->created_at?->diffForHumans() . ')'
+                    ),
+
+            ])->hidden(fn ($record) => $record === null);
+    }
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+                self::formPlaceholderDate(),
                 Forms\Components\Section::make()
+                    ->columns(2)
                     ->schema([
-                        Forms\Components\TextInput::make('name')->required()->maxLength(255)->label('Titulo')->columnSpan(4),
-                        Forms\Components\TextInput::make('slug')->required()->maxLength(255)->label('Url')->columnSpan(4)
+                        Forms\Components\TextInput::make('name')->required()->maxLength(255)->label('Titulo')->columnSpan(3),
+                        Forms\Components\TextInput::make('slug')->required()->maxLength(255)->label('Url')->columnSpan(3)
                             ->prefix(url('/specialty') . '/')
                             ->suffix('.com'),
-                        Forms\Components\Textarea::make('entry')->required()->maxLength(255)->columnSpanFull()->label('Pequeña descripcion'),
+
+                        Forms\Components\Textarea::make('entry')->required()->maxLength(255)->label('Pequeña descripcion'),
+                        Forms\Components\Toggle::make('active')->inline(false)->label('Visible'),
+                        Forms\Components\Fieldset::make('Metadata')
+                            ->relationship('meta')
+                            ->schema([
+                                Forms\Components\TextInput::make('title')->label('Titulo'),
+                                Forms\Components\Textarea::make('desc')->label('Descripcion'),
+                                Forms\Components\Textarea::make('extra')->label('Extra metadata')->columnSpan(2),
+
+                            ]),
                         Forms\Components\FileUpload::make('image')->directory('/img/specialties')
                             ->image()
                             ->maxSize(1024)
@@ -59,41 +94,18 @@ class SpecialtyResource extends Resource
                             ->maxSize(1024)
                             ->label('Imagen')
                             ->columnSpan(3),
-                        Forms\Components\Toggle::make('active')->inline(false)->label('Activo'),
+
                         Forms\Components\RichEditor::make('description')->disableToolbarButtons([
                             'attachFiles',
                             'strike',
                         ])->columnSpanFull()->label('Descripcion amplia'),
-                        Forms\Components\Fieldset::make('Metadata')
-                            ->relationship('meta')
-                            ->schema([
-                                Forms\Components\TextInput::make('title')->label('titulo'),
-                                Forms\Components\Textarea::make('desc')->label('descripcion'),
-                                Forms\Components\Textarea::make('extra')->label('Extra metadata')->columnSpan(2),
 
-                            ])
                     ])
-                    ->columns(6)
-                    ->columnSpan(['lg' => fn (?Specialty $record) => $record === null ? 3 : 2]),
 
 
-                Forms\Components\Section::make()
-                    ->schema([
-                        Forms\Components\Placeholder::make('created_at')
-                            ->label('Creado')
-                            ->content(fn (Specialty $record): ?string => $record->created_at?->diffForHumans()),
 
-                        Forms\Components\Placeholder::make('updated_at')
-                            ->label('Ultima modificacion')
-                            ->content(fn (Specialty $record): ?string => $record->updated_at?->diffForHumans()),
-                        Forms\Components\Placeholder::make('surgeries')
-                            ->label('Cirugias')
-                            ->content(fn (Specialty $record): ?string => $record->surgeries->count()),
-                    ])
-                    ->columnSpan(['lg' => 1])
-                    ->hidden(fn (?Specialty $record) => $record === null),
-            ])
-            ->columns(3);
+
+            ]);
     }
 
     public static function table(Table $table): Table
@@ -132,6 +144,7 @@ class SpecialtyResource extends Resource
             ->filters([
                 //
             ])
+
             ->actions([
                 Tables\Actions\EditAction::make()->icon(null)->color('info'),
                 Tables\Actions\DeleteAction::make()->icon(null),
@@ -146,8 +159,8 @@ class SpecialtyResource extends Resource
     public static function getRelations(): array
     {
         return [
-            ImageResource\RelationManagers\ImagesRelationManager::class,
-            SurgeriesRelationManager::class,
+            ImagesRelationManager::class,
+            RelationManagers\SurgeriesRelationManager::class
         ];
     }
 

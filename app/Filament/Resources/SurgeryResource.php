@@ -14,6 +14,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
@@ -24,6 +25,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class SurgeryResource extends Resource
 {
@@ -36,100 +38,90 @@ class SurgeryResource extends Resource
     protected static ?string $recordTitleAttribute = 'name';
     protected static ?int $navigationSort = 2;
 
-    public static function form(Form $form): Form
+    public static function form(Form $form, $visibleSpecialty = true): Form
     {
         return $form
+
             ->schema([
+                SpecialtyResource::formPlaceholderDate(),
+
                 Forms\Components\Section::make()
-                    ->schema([
-                        Forms\Components\TextInput::make('name')
-                            ->required()
-                            ->maxLength(255)
-                            ->label('Titulo'),
-
-                        Forms\Components\TextInput::make('slug')
-                            ->required()
-                            ->maxLength(255)
-                            ->label('Url')
-                            ->prefix(url('/surgery') . '/')
-                            ->suffix('.com')->columnSpanFull(),
-
-                        Forms\Components\Textarea::make('entry')
-                            ->required()
-                            ->maxLength(255)
-                            ->columnSpan(2)
-                            ->label('Pequeña descripcion'),
-
-                        // Select::make('doctors')
-                        //     ->relationship(name: 'doctors', titleAttribute: 'name')
-                        //     ->multiple()
-                        //     ->preload()
-                        //     ->label('Doctores'),
-
-
-                        Select::make('specialty_id')
-                            ->relationship(name: 'specialty', titleAttribute: 'name')
-                            ->preload()
-                            ->label('Especialidad'),
-
-                        Forms\Components\Toggle::make('active')
-                            ->inline(false)
-                            ->label('Activo'),
-                        Forms\Components\CheckboxList::make('doctors')
-                            ->relationship(titleAttribute: 'name')
-                            ->label('Doctores')->columns(3)
-                            ->columnSpanFull(),
-
-                        Forms\Components\RichEditor::make('description')
-                            ->required()
-                            ->disableToolbarButtons([
-                                'attachFiles',
-                                'strike',
-                            ])->columnSpan(2)
-                            ->label('Descripcion amplia'),
-
-                        Forms\Components\FileUpload::make('image')
-                            ->required()
-                            ->directory('/img/surgeries')
-                            ->image()
-                            ->maxSize(1024)
-                            ->label('Imagen'),
-
-                        Forms\Components\FileUpload::make('thumb')
-                            ->required()
-                            ->directory('/img/surgeries')
-                            ->image()
-                            ->maxSize(1024)
-                            ->label('Miniatura'),
-
-                        Fieldset::make('Metadata')
-                            ->relationship('meta')
-                            ->schema([
-                                TextInput::make('title')->label('titulo'),
-                                Textarea::make('desc')->label('descripcion'),
-                                Textarea::make('extra')->label('Extra metadata')->columnSpan(2),
-
-                            ])
-                    ])
+                    ->schema(self::formSurgery())
                     ->columns(2)
-                    ->columnSpan(['lg' => fn (?Surgery $record) => $record === null ? 3 : 2]),
 
 
-                Forms\Components\Section::make()
-                    ->schema([
-                        Forms\Components\Placeholder::make('created_at')
-                            ->label('Creado')
-                            ->content(fn (Surgery $record): ?string => $record->created_at?->diffForHumans()),
 
-                        Forms\Components\Placeholder::make('updated_at')
-                            ->label('Ultima modificacion')
-                            ->content(fn (Surgery $record): ?string => $record->updated_at?->diffForHumans()),
+            ]);
+    }
 
-                    ])
-                    ->columnSpan(['lg' => 1])
-                    ->hidden(fn (?Surgery $record) => $record === null),
-            ])
-            ->columns(3);
+    public static function formSurgery($showSelectSpecialty = true)
+    {
+        return [
+            Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255)
+                ->label('Titulo'),
+
+            Forms\Components\TextInput::make('slug')
+                ->required()
+                ->maxLength(255)
+                ->label('Url')
+                ->prefix(url('/surgery') . '/')
+                ->suffix('.com')
+                ->live(debounce: 300)
+                ->afterStateUpdated(fn ($state, Set $set) => $set('slug', Str::slug($state))),
+
+
+            Select::make('specialty_id')
+                ->relationship(name: 'specialty', titleAttribute: 'name')
+                ->preload()
+                ->visible($showSelectSpecialty)
+                ->label('Especialidad'),
+
+            Forms\Components\Toggle::make('active')->label('Visible')
+                ->inline(false),
+            Forms\Components\Textarea::make('entry')
+                ->required()
+                ->maxLength(255)
+                ->columnSpan(2)
+                ->label('Pequeña descripcion'),
+
+            Forms\Components\CheckboxList::make('doctors')
+                ->relationship(titleAttribute: 'name')
+                ->label('Doctores')->columns(3)
+                ->columnSpanFull(),
+
+            Forms\Components\RichEditor::make('description')
+                ->required()
+                ->disableToolbarButtons([
+                    'attachFiles',
+                    'strike',
+                ])->columnSpan(2)
+                ->label('Descripcion amplia'),
+
+            Forms\Components\FileUpload::make('image')
+                ->required()
+                ->directory('/img/surgeries')
+                ->image()
+                ->maxSize(1024)
+                ->label('Imagen'),
+
+            Forms\Components\FileUpload::make('thumb')
+                ->required()
+                ->directory('/img/surgeries')
+                ->image()
+                ->maxSize(1024)
+                ->label('Miniatura'),
+
+            Fieldset::make('Metadata')
+                ->relationship('meta')
+                ->schema([
+                    TextInput::make('title')->label('Titulo'),
+                    Textarea::make('desc')->label('Descripcion'),
+                    Textarea::make('extra')->label('Extra metadata')->columnSpan(2),
+
+                ])
+        ];
     }
 
     public static function table(Table $table): Table
@@ -148,6 +140,7 @@ class SurgeryResource extends Resource
                     ->description(fn (surgery $record): string => $record->slug)->label('Nombre - Url'),
 
                 TextColumn::make('specialty.name')
+                    ->visible(false)
                     ->color('primary')
                     ->weight(FontWeight::Medium)
                     ->label('Especialidad')
@@ -166,12 +159,12 @@ class SurgeryResource extends Resource
                     ->label('Modificado')
                     ->since(),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
+
             ->actions([
-                Tables\Actions\EditAction::make()->icon(null)->color('info'),
-                Tables\Actions\DeleteAction::make()->icon(null)
+
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
                     ->successNotificationTitle('Registro Eliminado')
                     ->after(function (Surgery $record) {
 
@@ -192,7 +185,7 @@ class SurgeryResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     //
                 ]),
-            ])->defaultSort('id', 'desc');;
+            ]);
     }
 
 
