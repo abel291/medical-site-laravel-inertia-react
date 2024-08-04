@@ -18,8 +18,8 @@ class SubscriptionSeeder extends Seeder
 
         for ($i = 0; $i < rand(5000, 8000); $i++) {
             $subscriptions[$i] = Subscription::factory()->make([
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => fake()->dateTimeBetween('-12 month', 'now'),
+                'updated_at' => fake()->dateTimeBetween('-12 month', 'now'),
             ])->toArray();
         }
         foreach (array_chunk($subscriptions, 1000) as $value) {

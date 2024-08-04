@@ -34,8 +34,8 @@ class AppointmentSeeder extends Seeder
                     'specialty_id' => $specialty?->id,
                     'surgery_id' => $specialty ? $specialty->surgeries->random()->id : null,
                     'page' => $pages->random()->type,
-                    'created_at' => now(),
-                    'updated_at' => now(),
+                    'created_at' => fake()->dateTimeBetween('-12 month', 'now'),
+                    'updated_at' => fake()->dateTimeBetween('-12 month', 'now'),
                 ];
             })->make()->toArray();
         }
