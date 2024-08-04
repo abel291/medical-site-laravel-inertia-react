@@ -12,3 +12,55 @@
 .fi-ta-image {
     @apply py-2.5;
 }
+.fi-input-wrp {
+    @apply rounded;
+}
+.fi-btn,
+.fi-sidebar-item-button,
+.fi-tabs-item {
+    @apply rounded-md;
+}
+.fi-simple-main {
+    @apply sm:rounded-md !important;
+}
+.fi-section,
+.fi-wi-stats-overview-stat,
+.fi-ta-ctn,
+.fi-tabs {
+    @apply rounded-lg;
+}
+.table-list-wrp {
+    @apply mt-5 overflow-hidden rounded-md border dark:border-white/10;
+}
+.table-list {
+    @apply w-full text-sm leading-6;
+}
+.table-list thead {
+    @apply bg-gray-50 dark:bg-white/5;
+}
+.fi-in-entry-wrp > div {
+    @apply gap-y-1;
+}
+
+.fi-in-text-item > div,
+.fi-fo-placeholder {
+    @apply text-gray-700 dark:text-gray-400;
+}
+.fi-ta-text,
+.fi-ta-image {
+    @apply gap-y-0 py-2.5;
+}
+.fi-ta-image > div {
+    @apply justify-center;
+}
+
+.fi-ta-image {
+    @apply w-full;
+}
+.fi-ta-image img {
+    @apply h-14 w-full max-w-full object-contain;
+}
+
+.fi-ta-actions .fi-link span {
+    @apply font-medium;
+}
